@@ -1,0 +1,5 @@
+
+UI=> User Interface=> Desktop, Web,API
+DLL=> Database Logic Layer(Entities, Infrastructure, Data,...)=> Sadece database ile ilgili olan kısım tutmak için kullanılır
+BLL=> Business Logic Layer=> İş mantığı katmanı. Projenin en ağır yükü bu alanda olur.
+DAL=> Data Access Layer=> Veritabanı erişim katmanı. Veritabanı ile ilgili olan tüm işlemler burada yapılır. DLL , DAL aynı işlemi görür ama bu projede biz DLL olarak adlandırdık. 

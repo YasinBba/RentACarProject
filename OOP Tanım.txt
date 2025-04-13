@@ -1,0 +1,5 @@
+
+
+Abstract Class: Soyut sınıf
+Concrete Class: Somut sınıf
+Interface: Arayüz
