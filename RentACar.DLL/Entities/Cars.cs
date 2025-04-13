@@ -13,7 +13,7 @@ namespace RentACar.DLL.Entities
         public string Brand { get; set; }
         public string Model { get; set; }
         public string Color { get; set; }
-        public int Year { get; set; }
+        public short Year { get; set; }
         public decimal PricePerDay { get; set; }
         //public DateTime CreatedAt { get; set; } = DateTime.Now;
         //public int CreatorId { get; set; }

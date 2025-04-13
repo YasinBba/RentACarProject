@@ -11,16 +11,31 @@ namespace RentACar.BLL
 {
     public class CarManagement : ICar
     {
-        public void Delete()
+        public void Delete(int id)
         {
-            /* Abstract ve Interface class türleri new lenemezler , sadece OOP de KALITIM VERMEK İÇİN oluşturulur  
+              /* Abstract ve Interface class türleri new lenemezler , sadece OOP de KALITIM VERMEK İÇİN oluşturulur  
             BaseEntity baseEntity = new BaseEntity();
-            ICar car = new ICar();
-            */
+            ICa */
+            throw new NotImplementedException();
+        }
+
+        public List<Cars> GetAll()
+        {
+            throw new NotImplementedException();
+            
+        }
+
+        public List<Cars> GetByBrand(string brand)
+        {
             throw new NotImplementedException();
         }
 
         public void GetByColor(string color)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Cars GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -30,32 +45,17 @@ namespace RentACar.BLL
             throw new NotImplementedException();
         }
 
-        public void GetByYear(int year)
+        public void GetByYear(short year)
         {
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public void Save(string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Cars>  GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Cars> ICar.GetByBrand(string brand)
-        {
-            throw new NotImplementedException();
-        }
-
-        Cars ICar.GetById(int id)
+        public void Update(int id, string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
         {
             throw new NotImplementedException();
         }
