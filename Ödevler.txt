@@ -1,0 +1,5 @@
+
+13 Nisan 2025 Verilen
+1-Bütün Ýnterface ler yapýlacak
+2-Bütün Management lar yapýlacak
+3-Arýzalanan araçlar için bir DB tasarým düþünerek tablo eklemesi yapýlaca (Entites klasörü altýna),eklenen tablo için Interface, Management classlarý yapýlacak
