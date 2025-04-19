@@ -11,7 +11,8 @@ namespace RentACar.DLLModel.Interafces
         void UpdateCar(Cars car);
         List<Cars> GetAllCars();
         void DeleteCar(int id);
-        
+        bool ControlSameCar(string carName, string carBrand, string carModel);
+
 
     }
 }

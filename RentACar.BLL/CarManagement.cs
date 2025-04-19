@@ -16,6 +16,13 @@ namespace RentACar.BLL
         {
             try
             {
+              bool saveResult=  ControlSameCar(car.Name, car.Brand, car.Model);
+
+                if (saveResult)
+                {
+                    return "Aynı Model,Marka ve İsimde kayıt içeride mevcut";
+                }
+
                 db.Cars.Add(car);   
                 int result = db.SaveChanges();
                 if (result > 0)
@@ -36,6 +43,18 @@ namespace RentACar.BLL
             }
 
 
+        }
+
+        public bool ControlSameCar(string carName, string carBrand, string carModel)
+        {
+            if (db.Cars.Any(c => c.Name == carName && c.Brand == carBrand && c.Model == carModel))
+            {
+                return true; // Car already exists
+            }
+            else
+            {
+                return false; // Car does not exist
+            }   
         }
 
         public void DeleteCar(int id)

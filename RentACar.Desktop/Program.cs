@@ -16,7 +16,7 @@ namespace RentACar.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCars());
+            Application.Run(new FormMenu());
         }
     }
 }
