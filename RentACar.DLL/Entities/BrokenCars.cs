@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 
 namespace RentACar.DLL.Entities
 {
-    public class Employesses:BaseEntity
+    public class BrokenCars: BaseEntity
     {
-        public Employesses() { }
+        public string Description { get; set; }
+        public DateTime BrokenDate { get; set; }
+        public int CarId { get; set; }
+        public Cars Cars { get; set; }
+        public int CustomerId { get; set; }
         //public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        //public string Brand { get; set; }
+        //public string Model { get; set; }
+        //public string Color { get; set; }
+        //public short Year { get; set; }
+        //public decimal PricePerDay { get; set; }
         //public DateTime CreatedAt { get; set; } = DateTime.Now;
         //public int CreatorId { get; set; }
         // public DateTime UpdatedAt { get; set; } = DateTime.Now;
         //public int UpdaterId { get; set; }
-
         //public bool IsActive { get; set; } = true;
+    {
 
     }
 }

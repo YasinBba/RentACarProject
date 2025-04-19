@@ -7,7 +7,18 @@ using System.Threading.Tasks;
 
 namespace RentACar.DLL.Entities
 {
-    internal class Users: BaseEntity
+    public class Users: BaseEntity
     {
+        public string UserName { get; set; }
+       
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
+        public string UserPhone { get; set; }
+       
+        public string UserRole { get; set; } // Admin, User, etc.
+        public int UserId { get; set; }
+
+
+
     }
 }

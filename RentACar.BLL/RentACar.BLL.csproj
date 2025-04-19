@@ -41,9 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrokenCarsManagment.cs" />
     <Compile Include="CarManagement.cs" />
     <Compile Include="CustomerManagement.cs" />
+    <Compile Include="EmployeeManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentalCarManagment.cs" />
+    <Compile Include="RuleManagment.cs" />
+    <Compile Include="UserManagment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RentACar.DLL\RentACar.DLL.csproj">

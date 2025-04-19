@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace RentACar.DLL.Entities
 {
-    internal class Rules:BaseEntity
+    public class Rules:BaseEntity
     {
-        
+        public string RuleName { get; set; }
+        public string RuleDescription { get; set; }
+        public int RuleDuration { get; set; } // in days
+        public decimal RulePrice { get; set; } // price per day
+        public int RentalCarId { get; set; }
+
+
     }
 }

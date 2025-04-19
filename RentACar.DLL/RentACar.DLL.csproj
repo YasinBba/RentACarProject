@@ -53,14 +53,19 @@
   <ItemGroup>
     <Compile Include="Configuration\CarConfiguration.cs" />
     <Compile Include="Entities\Abstraction\BaseEntity.cs" />
+    <Compile Include="Entities\BrokenCars.cs" />
     <Compile Include="Entities\Cars.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Employesses.cs" />
     <Compile Include="Entities\RentalCars.cs" />
     <Compile Include="Entities\Rules.cs" />
     <Compile Include="Entities\Users.cs" />
+    <Compile Include="Interfaces\IBrokenCars.cs" />
     <Compile Include="Interfaces\ICar.cs" />
     <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\IEmployesses.cs" />
+    <Compile Include="Interfaces\IRentalCars.cs" />
+    <Compile Include="Interfaces\IRules.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentACarDB.cs" />
