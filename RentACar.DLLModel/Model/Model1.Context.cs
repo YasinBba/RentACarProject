@@ -29,5 +29,6 @@ namespace RentACar.DLLModel.Model
         public virtual DbSet<Kiralama> Kiralama { get; set; }
         public virtual DbSet<Musteriler> Musteriler { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Cars> Cars { get; set; }
     }
 }

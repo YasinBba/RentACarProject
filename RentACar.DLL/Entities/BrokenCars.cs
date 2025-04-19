@@ -25,7 +25,7 @@ namespace RentACar.DLL.Entities
         // public DateTime UpdatedAt { get; set; } = DateTime.Now;
         //public int UpdaterId { get; set; }
         //public bool IsActive { get; set; } = true;
-    {
+    
 
     }
 }

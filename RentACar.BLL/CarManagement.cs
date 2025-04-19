@@ -1,61 +1,59 @@
-﻿using System;
+﻿
+
+using RentACar.DLLModel.Interafces;
+using RentACar.DLLModel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RentACar.DLL.Interfaces;
-using RentACar.DLL.Entities;
-using RentACar.DLL.Entities.Abstraction;
+
 
 namespace RentACar.BLL
 {
     public class CarManagement : ICar
     {
-        public void Delete(int id)
+        YasinRentACarEntities db = new YasinRentACarEntities();
+        public string  AddCar(Cars car)
         {
-              /* Abstract ve Interface class türleri new lenemezler , sadece OOP de KALITIM VERMEK İÇİN oluşturulur  
-            BaseEntity baseEntity = new BaseEntity();
-            ICa */
-            throw new NotImplementedException();
+            try
+            {
+                db.Cars.Add(car);   
+                int result = db.SaveChanges();
+                if (result > 0)
+                {
+                    return "Success";
+                }
+                else
+                {
+                   return "Failed";
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return "Error: " + ex.Message;  
+            }
+
+
         }
 
-        public List<Cars> GetAll()
-        {
-            throw new NotImplementedException();
-            
-        }
-
-        public List<Cars> GetByBrand(string brand)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByColor(string color)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Cars GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByModel(string model)
+        public void DeleteCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByYear(short year)
+        public List<Cars> GetAllCars()
+        {
+            return db.Cars.ToList();
+        }
+
+        public Cars GetCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int id, string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
+        public void UpdateCar(Cars car)
         {
             throw new NotImplementedException();
         }
