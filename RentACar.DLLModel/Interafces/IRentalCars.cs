@@ -16,5 +16,6 @@ namespace RentACar.DLLModel.Interafces
         void DeleteRentalCar(int id);
       
         bool ControlSameRentalCar(string carName, string carBrand, string carModel, int id);
+        
     }
 }

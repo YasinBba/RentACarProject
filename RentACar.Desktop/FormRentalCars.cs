@@ -21,7 +21,8 @@ namespace RentACar.Desktop
 
         private void FormRentalCars_Load(object sender, EventArgs e)
         {
-            dataGridViewRentalCarList.DataSource = rentalCarManagment.GetAllRentalCars();
+            //dataGridViewRentalCarList.DataSource = rentalCarManagment.GetAllRentalCars();
+            dataGridViewRentalCarList.DataSource=rentalCarManagment.GetAllRentalCarListDto();
         }
     }
 }
