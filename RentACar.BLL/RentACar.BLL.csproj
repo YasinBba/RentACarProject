@@ -67,10 +67,6 @@
       <Project>{7928210b-4a45-4177-a18c-dbe5c70c4a46}</Project>
       <Name>RentACar.DLLModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RentACar.DLL\RentACar.DLL.csproj">
-      <Project>{89312c58-452b-4244-b630-80fe89870166}</Project>
-      <Name>RentACar.DLL</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

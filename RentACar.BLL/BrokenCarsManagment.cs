@@ -1,5 +1,6 @@
-﻿using RentACar.DLL.Entities;
-using RentACar.DLL.Interfaces;
+﻿using RentACar.DLLModel;
+using RentACar.DLLModel.Interafces;
+using RentACar.DLLModel.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +11,32 @@ namespace RentACar.BLL
 {
     internal class BrokenCarsManagment : IBrokenCars
     {
-        public void Delete(int id)
+        public string AddBrokenCar(BrokenCars brokenCar)
         {
             throw new NotImplementedException();
         }
 
-        public List<BrokenCars> GetAll()
+        public bool ControlSameBrokenCar(string carName, string carBrand, string carModel, int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<BrokenCars> GetByCarId(int carId)
+        public void DeleteBrokenCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public BrokenCars GetById(int id)
+        public List<BrokenCars> GetAllBrokenCars()
         {
             throw new NotImplementedException();
         }
 
-        public void Save(string description, DateTime brokenDate, int carId)
+        public BrokenCars GetBrokenCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, string description, DateTime brokenDate, int carId)
+        public void UpdateBrokenCar(BrokenCars brokenCar)
         {
             throw new NotImplementedException();
         }

@@ -81,6 +81,12 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRentalCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRentalCars.Designer.cs">
+      <DependentUpon>FormRentalCars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCars.resx">
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRentalCars.resx">
+      <DependentUpon>FormRentalCars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,10 +135,6 @@
     <ProjectReference Include="..\RentACar.DLLModel\RentACar.DLLModel.csproj">
       <Project>{7928210b-4a45-4177-a18c-dbe5c70c4a46}</Project>
       <Name>RentACar.DLLModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RentACar.DLL\RentACar.DLL.csproj">
-      <Project>{89312C58-452B-4244-B630-80FE89870166}</Project>
-      <Name>RentACar.DLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

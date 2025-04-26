@@ -30,5 +30,12 @@ namespace RentACar.Desktop
             formCustomers.MdiParent = this;
             formCustomers.Show();
         }
+
+        private void ToolStripMenuItemRentalCars_Click(object sender, EventArgs e)
+        {
+            FormRentalCars formRentalCar = new FormRentalCars();
+            formRentalCar.MdiParent = this;
+            formRentalCar.Show();
+        }
     }
 }

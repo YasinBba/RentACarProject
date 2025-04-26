@@ -1,5 +1,6 @@
-﻿using RentACar.DLL.Entities;
-using RentACar.DLL.Interfaces;
+﻿using RentACar.DLLModel;
+using RentACar.DLLModel.Interafces;
+using RentACar.DLLModel.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,66 +9,36 @@ using System.Threading.Tasks;
 
 namespace RentACar.BLL
 {
-    internal class RentalCarManagment: IRentalCars
+    public class RentalCarManagment: IRentalCars
     {
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public List<RentalCars> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        private readonly  YasinRentACarEntities db = new YasinRentACarEntities();
 
-        public List<RentalCars> GetByBrand(string brand)
+        public string AddRentalCar(RentalCars rentalCar)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByColor(string color)
+        public bool ControlSameRentalCar(string carName, string carBrand, string carModel, int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByDate(DateTime date)
+        public void DeleteRentalCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public RentalCars GetById(int id)
+        public List<RentalCars> GetAllRentalCars()
+        {
+            return db.RentalCars.ToList();
+        }
+
+        public RentalCars GetRentalCar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetById(int id, string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByModel(string model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByPrice(decimal price)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByYear(short year)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void Save(string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
-
-       
-
-        public void Update(int id, string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
+        public void UpdateRentalCar(RentalCars rentalCar)
         {
             throw new NotImplementedException();
         }

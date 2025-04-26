@@ -31,6 +31,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arabalarToolStripMenuItemCars = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCustomers = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRentalCars = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +42,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arabalarToolStripMenuItemCars,
-            this.toolStripMenuItemCustomers});
+            this.toolStripMenuItemCustomers,
+            this.ToolStripMenuItemRentalCars,
+            this.usersToolStripMenuItem,
+            this.rulesToolStripMenuItem,
+            this.employeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(978, 24);
@@ -58,6 +66,31 @@
             this.toolStripMenuItemCustomers.Size = new System.Drawing.Size(76, 20);
             this.toolStripMenuItemCustomers.Text = "Customers";
             this.toolStripMenuItemCustomers.Click += new System.EventHandler(this.toolStripMenuItemCustomers_Click);
+            // 
+            // ToolStripMenuItemRentalCars
+            // 
+            this.ToolStripMenuItemRentalCars.Name = "ToolStripMenuItemRentalCars";
+            this.ToolStripMenuItemRentalCars.Size = new System.Drawing.Size(78, 20);
+            this.ToolStripMenuItemRentalCars.Text = "Rental Cars";
+            this.ToolStripMenuItemRentalCars.Click += new System.EventHandler(this.ToolStripMenuItemRentalCars_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // rulesToolStripMenuItem
+            // 
+            this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
+            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.rulesToolStripMenuItem.Text = "Rules";
+            // 
+            // employeesToolStripMenuItem
+            // 
+            this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.employeesToolStripMenuItem.Text = "Employees";
             // 
             // FormMenu
             // 
@@ -81,5 +114,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem arabalarToolStripMenuItemCars;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCustomers;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRentalCars;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rulesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
     }
 }
