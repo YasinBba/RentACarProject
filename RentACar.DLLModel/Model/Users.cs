@@ -12,28 +12,41 @@ namespace RentACar.DLLModel.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Cars
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cars()
+        public Users()
         {
             this.BrokenCars = new HashSet<BrokenCars>();
+            this.BrokenCars1 = new HashSet<BrokenCars>();
             this.RentalCars = new HashSet<RentalCars>();
+            this.RentalCars1 = new HashSet<RentalCars>();
+            this.RentalCars2 = new HashSet<RentalCars>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Brand { get; set; }
-        public string Model { get; set; }
+        public string UserName { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
+        public string UserPhone { get; set; }
+        public string UserRole { get; set; }
+        public int UserId { get; set; }
         public System.DateTime CreateDate { get; set; }
         public int CreatorId { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
-        public Nullable<int> UpdatorId { get; set; }
-        public string Descrpton { get; set; }
+        public System.DateTime UpdateDate { get; set; }
+        public int UpdatorId { get; set; }
+        public string Description { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BrokenCars> BrokenCars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BrokenCars> BrokenCars1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RentalCars> RentalCars { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RentalCars> RentalCars1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RentalCars> RentalCars2 { get; set; }
     }
 }

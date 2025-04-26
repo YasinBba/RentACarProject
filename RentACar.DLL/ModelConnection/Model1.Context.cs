@@ -15,6 +15,8 @@ namespace RentACar.DLL.ModelConnection
     
     public partial class YasinRentACarEntities : DbContext
     {
+        
+
         public YasinRentACarEntities()
             : base("name=YasinRentACarEntities")
         {
@@ -29,5 +31,6 @@ namespace RentACar.DLL.ModelConnection
         public virtual DbSet<Kiralama> Kiralama { get; set; }
         public virtual DbSet<Musteriler> Musteriler { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        
     }
 }

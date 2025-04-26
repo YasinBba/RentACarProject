@@ -5,15 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="YasinRentACarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Araclar">
+        <EntityType Name="BrokenCars">
           <Key>
-            <PropertyRef Name="AracId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="AracId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AracModel" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="AracEklenmeTarih" Type="datetime" Nullable="false" />
-          <Property Name="AracMusaitlik" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="BrokenDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatorId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Cars">
           <Key>
@@ -29,168 +34,344 @@
           <Property Name="UpdatorId" Type="int" />
           <Property Name="Descrpton" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Kiralama">
+        <EntityType Name="Customers">
           <Key>
-            <PropertyRef Name="KiralamalarId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="KiralamalarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AracId" Type="int" Nullable="false" />
-          <Property Name="MusteriId" Type="int" Nullable="false" />
-          <Property Name="AlinisTarihi" Type="datetime" Nullable="false" />
-          <Property Name="IadeTarihi" Type="datetime" Nullable="false" />
-          <Property Name="TeslimTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatorId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatorId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RentalCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="PricePerDay" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="FuelAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatorId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YasinRentACar.dbo.Rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rules">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RuleName" />
+            <PropertyRef Name="RuleDescription" />
+            <PropertyRef Name="RuleDuration" />
+            <PropertyRef Name="RulePrice" />
+            <PropertyRef Name="RentalCarId" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="CreatorId" />
+            <PropertyRef Name="UpdateDate" />
+            <PropertyRef Name="UpdatorId" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RuleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RuleDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RuleDuration" Type="datetime" Nullable="false" />
+          <Property Name="RulePrice" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RentalCarId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatorId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatorId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="Aciklama" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Musteriler">
-          <Key>
-            <PropertyRef Name="MusteriId" />
-          </Key>
-          <Property Name="MusteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MusteriAdSoyad" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MusteriNo" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="MusteriEklenmeZamani" Type="datetime" Nullable="false" />
-          <Property Name="İsActive" Type="bit" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <Association Name="FK_Kiralama_Araclar">
-          <End Role="Araclar" Type="Self.Araclar" Multiplicity="1" />
-          <End Role="Kiralama" Type="Self.Kiralama" Multiplicity="*" />
+        <Association Name="FK_BrokenCars_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="BrokenCars" Type="Self.BrokenCars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Araclar">
-              <PropertyRef Name="AracId" />
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kiralama">
-              <PropertyRef Name="AracId" />
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CarId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Kiralama_Musteriler">
-          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="1" />
-          <End Role="Kiralama" Type="Self.Kiralama" Multiplicity="*" />
+        <Association Name="FK_BrokenCars_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="BrokenCars" Type="Self.BrokenCars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Musteriler">
-              <PropertyRef Name="MusteriId" />
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kiralama">
-              <PropertyRef Name="MusteriId" />
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrokenCars_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BrokenCars" Type="Self.BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrokenCars_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="BrokenCars" Type="Self.BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="UpdatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="RentalCars" Type="Self.RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="RentalCars" Type="Self.RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RentalCars" Type="Self.RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RentalCars" Type="Self.RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users2">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RentalCars" Type="Self.RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="UpdatorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="YasinRentACarModelStoreContainer">
-          <EntitySet Name="Araclar" EntityType="Self.Araclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrokenCars" EntityType="Self.BrokenCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kiralama" EntityType="Self.Kiralama" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Kiralama_Araclar" Association="Self.FK_Kiralama_Araclar">
-            <End Role="Araclar" EntitySet="Araclar" />
-            <End Role="Kiralama" EntitySet="Kiralama" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employess" EntityType="Self.Employess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentalCars" EntityType="Self.RentalCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rules" EntityType="Self.Rules" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rules].[Id] AS [Id], 
+    [Rules].[RuleName] AS [RuleName], 
+    [Rules].[RuleDescription] AS [RuleDescription], 
+    [Rules].[RuleDuration] AS [RuleDuration], 
+    [Rules].[RulePrice] AS [RulePrice], 
+    [Rules].[RentalCarId] AS [RentalCarId], 
+    [Rules].[CreateDate] AS [CreateDate], 
+    [Rules].[CreatorId] AS [CreatorId], 
+    [Rules].[UpdateDate] AS [UpdateDate], 
+    [Rules].[UpdatorId] AS [UpdatorId], 
+    [Rules].[Description] AS [Description], 
+    [Rules].[IsActive] AS [IsActive]
+    FROM [dbo].[Rules] AS [Rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BrokenCars_Cars" Association="Self.FK_BrokenCars_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
           </AssociationSet>
-          <AssociationSet Name="FK_Kiralama_Musteriler" Association="Self.FK_Kiralama_Musteriler">
-            <End Role="Musteriler" EntitySet="Musteriler" />
-            <End Role="Kiralama" EntitySet="Kiralama" />
+          <AssociationSet Name="FK_BrokenCars_Customers" Association="Self.FK_BrokenCars_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrokenCars_Users" Association="Self.FK_BrokenCars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrokenCars_Users1" Association="Self.FK_BrokenCars_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Cars" Association="Self.FK_RentalCars_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Customers" Association="Self.FK_RentalCars_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users" Association="Self.FK_RentalCars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users1" Association="Self.FK_RentalCars_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users2" Association="Self.FK_RentalCars_Users2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YasinRentACarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Araclar">
-          <Key>
-            <PropertyRef Name="AracId" />
-          </Key>
-          <Property Name="AracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AracModel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AracEklenmeTarih" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="AracMusaitlik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="Kiralama" Relationship="Self.FK_Kiralama_Araclar" FromRole="Araclar" ToRole="Kiralama" />
-        </EntityType>
-        <EntityType Name="Kiralama">
-          <Key>
-            <PropertyRef Name="KiralamalarId" />
-          </Key>
-          <Property Name="KiralamalarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AracId" Type="Int32" Nullable="false" />
-          <Property Name="MusteriId" Type="Int32" Nullable="false" />
-          <Property Name="AlinisTarihi" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IadeTarihi" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TeslimTarihi" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Araclar" Relationship="Self.FK_Kiralama_Araclar" FromRole="Kiralama" ToRole="Araclar" />
-          <NavigationProperty Name="Musteriler" Relationship="Self.FK_Kiralama_Musteriler" FromRole="Kiralama" ToRole="Musteriler" />
-        </EntityType>
-        <EntityType Name="Musteriler">
-          <Key>
-            <PropertyRef Name="MusteriId" />
-          </Key>
-          <Property Name="MusteriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MusteriAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MusteriNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MusteriEklenmeZamani" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="İsActive" Type="Boolean" />
-          <NavigationProperty Name="Kiralama" Relationship="Self.FK_Kiralama_Musteriler" FromRole="Musteriler" ToRole="Kiralama" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK_Kiralama_Araclar">
-          <End Role="Araclar" Type="Self.Araclar" Multiplicity="1" />
-          <End Role="Kiralama" Type="Self.Kiralama" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Araclar">
-              <PropertyRef Name="AracId" />
-            </Principal>
-            <Dependent Role="Kiralama">
-              <PropertyRef Name="AracId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Kiralama_Musteriler">
-          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="1" />
-          <End Role="Kiralama" Type="Self.Kiralama" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Musteriler">
-              <PropertyRef Name="MusteriId" />
-            </Principal>
-            <Dependent Role="Kiralama">
-              <PropertyRef Name="MusteriId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="YasinRentACarEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Araclar" EntityType="Self.Araclar" />
-          <EntitySet Name="Kiralama" EntityType="Self.Kiralama" />
-          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <AssociationSet Name="FK_Kiralama_Araclar" Association="Self.FK_Kiralama_Araclar">
-            <End Role="Araclar" EntitySet="Araclar" />
-            <End Role="Kiralama" EntitySet="Kiralama" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Kiralama_Musteriler" Association="Self.FK_Kiralama_Musteriler">
-            <End Role="Musteriler" EntitySet="Musteriler" />
-            <End Role="Kiralama" EntitySet="Kiralama" />
-          </AssociationSet>
+          <EntitySet Name="BrokenCars" EntityType="YasinRentACarModel.BrokenCars" />
           <EntitySet Name="Cars" EntityType="YasinRentACarModel.Cars" />
+          <EntitySet Name="Customers" EntityType="YasinRentACarModel.Customers" />
+          <EntitySet Name="Employess" EntityType="YasinRentACarModel.Employess" />
+          <EntitySet Name="RentalCars" EntityType="YasinRentACarModel.RentalCars" />
+          <EntitySet Name="Users" EntityType="YasinRentACarModel.Users" />
+          <EntitySet Name="Rules" EntityType="YasinRentACarModel.Rules" />
+          <AssociationSet Name="FK_BrokenCars_Cars" Association="YasinRentACarModel.FK_BrokenCars_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrokenCars_Customers" Association="YasinRentACarModel.FK_BrokenCars_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrokenCars_Users" Association="YasinRentACarModel.FK_BrokenCars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrokenCars_Users1" Association="YasinRentACarModel.FK_BrokenCars_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrokenCars" EntitySet="BrokenCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Cars" Association="YasinRentACarModel.FK_RentalCars_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Customers" Association="YasinRentACarModel.FK_RentalCars_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users" Association="YasinRentACarModel.FK_RentalCars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users1" Association="YasinRentACarModel.FK_RentalCars_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalCars_Users2" Association="YasinRentACarModel.FK_RentalCars_Users2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RentalCars" EntitySet="RentalCars" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BrokenCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="BrokenDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="YasinRentACarModel.FK_BrokenCars_Cars" FromRole="BrokenCars" ToRole="Cars" />
+          <NavigationProperty Name="Customers" Relationship="YasinRentACarModel.FK_BrokenCars_Customers" FromRole="BrokenCars" ToRole="Customers" />
+          <NavigationProperty Name="Users" Relationship="YasinRentACarModel.FK_BrokenCars_Users" FromRole="BrokenCars" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="YasinRentACarModel.FK_BrokenCars_Users1" FromRole="BrokenCars" ToRole="Users" />
+        </EntityType>
         <EntityType Name="Cars">
           <Key>
             <PropertyRef Name="Id" />
@@ -204,57 +385,248 @@
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatorId" Type="Int32" />
           <Property Name="Descrpton" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BrokenCars" Relationship="YasinRentACarModel.FK_BrokenCars_Cars" FromRole="Cars" ToRole="BrokenCars" />
+          <NavigationProperty Name="RentalCars" Relationship="YasinRentACarModel.FK_RentalCars_Cars" FromRole="Cars" ToRole="RentalCars" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BrokenCars" Relationship="YasinRentACarModel.FK_BrokenCars_Customers" FromRole="Customers" ToRole="BrokenCars" />
+          <NavigationProperty Name="RentalCars" Relationship="YasinRentACarModel.FK_RentalCars_Customers" FromRole="Customers" ToRole="RentalCars" />
+        </EntityType>
+        <EntityType Name="Employess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RentalCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="PricePerDay" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="FuelAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="YasinRentACarModel.FK_RentalCars_Cars" FromRole="RentalCars" ToRole="Cars" />
+          <NavigationProperty Name="Customers" Relationship="YasinRentACarModel.FK_RentalCars_Customers" FromRole="RentalCars" ToRole="Customers" />
+          <NavigationProperty Name="Users" Relationship="YasinRentACarModel.FK_RentalCars_Users" FromRole="RentalCars" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="YasinRentACarModel.FK_RentalCars_Users1" FromRole="RentalCars" ToRole="Users" />
+          <NavigationProperty Name="Users2" Relationship="YasinRentACarModel.FK_RentalCars_Users2" FromRole="RentalCars" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="UserRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BrokenCars" Relationship="YasinRentACarModel.FK_BrokenCars_Users" FromRole="Users" ToRole="BrokenCars" />
+          <NavigationProperty Name="BrokenCars1" Relationship="YasinRentACarModel.FK_BrokenCars_Users1" FromRole="Users" ToRole="BrokenCars" />
+          <NavigationProperty Name="RentalCars" Relationship="YasinRentACarModel.FK_RentalCars_Users" FromRole="Users" ToRole="RentalCars" />
+          <NavigationProperty Name="RentalCars1" Relationship="YasinRentACarModel.FK_RentalCars_Users1" FromRole="Users" ToRole="RentalCars" />
+          <NavigationProperty Name="RentalCars2" Relationship="YasinRentACarModel.FK_RentalCars_Users2" FromRole="Users" ToRole="RentalCars" />
+        </EntityType>
+        <EntityType Name="Rules">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RuleName" />
+            <PropertyRef Name="RuleDescription" />
+            <PropertyRef Name="RuleDuration" />
+            <PropertyRef Name="RulePrice" />
+            <PropertyRef Name="RentalCarId" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="CreatorId" />
+            <PropertyRef Name="UpdateDate" />
+            <PropertyRef Name="UpdatorId" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RuleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RuleDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RuleDuration" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RulePrice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RentalCarId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatorId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BrokenCars_Cars">
+          <End Type="YasinRentACarModel.Cars" Role="Cars" Multiplicity="1" />
+          <End Type="YasinRentACarModel.BrokenCars" Role="BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrokenCars_Customers">
+          <End Type="YasinRentACarModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="YasinRentACarModel.BrokenCars" Role="BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrokenCars_Users">
+          <End Type="YasinRentACarModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="YasinRentACarModel.BrokenCars" Role="BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrokenCars_Users1">
+          <End Type="YasinRentACarModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="YasinRentACarModel.BrokenCars" Role="BrokenCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrokenCars">
+              <PropertyRef Name="UpdatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Cars">
+          <End Type="YasinRentACarModel.Cars" Role="Cars" Multiplicity="1" />
+          <End Type="YasinRentACarModel.RentalCars" Role="RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Customers">
+          <End Type="YasinRentACarModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="YasinRentACarModel.RentalCars" Role="RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users">
+          <End Type="YasinRentACarModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="YasinRentACarModel.RentalCars" Role="RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users1">
+          <End Type="YasinRentACarModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="YasinRentACarModel.RentalCars" Role="RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalCars_Users2">
+          <End Type="YasinRentACarModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="YasinRentACarModel.RentalCars" Role="RentalCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalCars">
+              <PropertyRef Name="UpdatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="YasinRentACarModelStoreContainer" CdmEntityContainer="YasinRentACarEntities">
-          <EntitySetMapping Name="Araclar">
-            <EntityTypeMapping TypeName="YasinRentACarModel.Araclar">
-              <MappingFragment StoreEntitySet="Araclar">
-                <ScalarProperty Name="AracId" ColumnName="AracId" />
-                <ScalarProperty Name="AracModel" ColumnName="AracModel" />
-                <ScalarProperty Name="AracEklenmeTarih" ColumnName="AracEklenmeTarih" />
-                <ScalarProperty Name="AracMusaitlik" ColumnName="AracMusaitlik" />
+          <EntitySetMapping Name="BrokenCars">
+            <EntityTypeMapping TypeName="YasinRentACarModel.BrokenCars">
+              <MappingFragment StoreEntitySet="BrokenCars">
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Kiralama">
-            <EntityTypeMapping TypeName="YasinRentACarModel.Kiralama">
-              <MappingFragment StoreEntitySet="Kiralama">
-                <ScalarProperty Name="KiralamalarId" ColumnName="KiralamalarId" />
-                <ScalarProperty Name="AracId" ColumnName="AracId" />
-                <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
-                <ScalarProperty Name="AlinisTarihi" ColumnName="AlinisTarihi" />
-                <ScalarProperty Name="IadeTarihi" ColumnName="IadeTarihi" />
-                <ScalarProperty Name="TeslimTarihi" ColumnName="TeslimTarihi" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Musteriler">
-            <EntityTypeMapping TypeName="YasinRentACarModel.Musteriler">
-              <MappingFragment StoreEntitySet="Musteriler">
-                <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
-                <ScalarProperty Name="MusteriAdSoyad" ColumnName="MusteriAdSoyad" />
-                <ScalarProperty Name="MusteriNo" ColumnName="MusteriNo" />
-                <ScalarProperty Name="MusteriEklenmeZamani" ColumnName="MusteriEklenmeZamani" />
-                <ScalarProperty Name="İsActive" ColumnName="İsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="YasinRentACarModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="BrokenDescription" ColumnName="BrokenDescription" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -269,6 +641,101 @@
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="YasinRentACarModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employess">
+            <EntityTypeMapping TypeName="YasinRentACarModel.Employess">
+              <MappingFragment StoreEntitySet="Employess">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RentalCars">
+            <EntityTypeMapping TypeName="YasinRentACarModel.RentalCars">
+              <MappingFragment StoreEntitySet="RentalCars">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FuelAmount" ColumnName="FuelAmount" />
+                <ScalarProperty Name="PricePerDay" ColumnName="PricePerDay" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="YasinRentACarModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rules">
+            <EntityTypeMapping TypeName="YasinRentACarModel.Rules">
+              <MappingFragment StoreEntitySet="Rules">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="RentalCarId" ColumnName="RentalCarId" />
+                <ScalarProperty Name="RulePrice" ColumnName="RulePrice" />
+                <ScalarProperty Name="RuleDuration" ColumnName="RuleDuration" />
+                <ScalarProperty Name="RuleDescription" ColumnName="RuleDescription" />
+                <ScalarProperty Name="RuleName" ColumnName="RuleName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

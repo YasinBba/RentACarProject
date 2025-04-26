@@ -1,66 +1,40 @@
-﻿using RentACar.DLL.Entities;
-using RentACar.DLL.Interfaces;
+﻿
+
+using RentACar.DLLModel.Interafces;
+using RentACar.DLLModel.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace RentACar.BLL
 {
-    internal class EmployeeManagment : IEmployesses
+    public class EmployeeManagment : IEmployees
     {
-        public void Delete(int id)
+        public string AddEmployee(Employess employee)
         {
             throw new NotImplementedException();
         }
 
-        public List<IEmployesses> GetAll()
+        public bool ControlSameEmployee(string firstName, string lastName, string email, int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByAddress(string address)
+        public void DeleteEmployee(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByDateOfBirth(DateTime dateOfBirth)
+        public List<Employess> GetAllEmployees()
         {
             throw new NotImplementedException();
         }
 
-        public void GetByEmail(string email)
+        public Employess GetEmployee(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void GetByFirstName(string firstName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Employesses GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByLastName(string lastName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetByPhoneNumber(string phoneNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(string firstName, string lastName, string email, string phoneNumber, string address, DateTime dateOfBirth, DateTime createdAt, int creatorId, DateTime updatedAt, int updaterId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int id, string firstName, string lastName, string email, string phoneNumber, string address, DateTime dateOfBirth, DateTime createdAt, int creatorId, DateTime updatedAt, int updaterId, bool isActive)
+        public void UpdateEmployee(Employess employee)
         {
             throw new NotImplementedException();
         }

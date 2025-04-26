@@ -5,7 +5,7 @@
 3-Arýzalanan araçlar için bir DB tasarým düþünerek tablo eklemesi yapýlaca (Entites klasörü altýna),eklenen tablo için Interface, Management classlarý yapýlacak   +
 ---------------------------------------------------------------
 19 Nisan 2025 Ödevleri
-1- bütün interrface ler model yapýsýna göre yapýlacak
+1- bütün interrface ler model yapýsýna göre yapýlacak +
 2- bütün management lar model yapýsýna göre yapýlacak
 3- bütün formlar oluþturulacak ve managmentlar ile baðlanacak.Managment altýnda yer alan bütün methodlar dolu olacak þekilde formda kullanýlacak
-4- SQL de tablolar oluþturulacak ve tablolar ile DLL arasýnda baðlantý kurulacak
+4- SQL de tablolar oluþturulacak ve tablolar ile DLL arasýnda baðlantý kurulacak +

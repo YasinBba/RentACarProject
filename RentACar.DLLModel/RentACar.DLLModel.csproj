@@ -53,14 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interafces\IBrokenCars.cs" />
+    <Compile Include="Interafces\IEmployees.cs" />
     <Compile Include="Interafces\ICar.cs" />
-    <Compile Include="Model\Araclar.cs">
+    <Compile Include="Interafces\ICustomers.cs" />
+    <Compile Include="Interafces\IRentalCars.cs" />
+    <Compile Include="Interafces\IRules.cs" />
+    <Compile Include="Interafces\IUsers.cs" />
+    <Compile Include="Model\BrokenCars.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Cars.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Kiralama.cs">
+    <Compile Include="Model\Customers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employess.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Context.cs">
@@ -78,10 +87,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Musteriler.cs">
+    <Compile Include="Model\RentalCars.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
+    <Compile Include="Model\Rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RentACar.DLL\RentACar.DLL.csproj">
+      <Project>{89312C58-452B-4244-B630-80FE89870166}</Project>
+      <Name>RentACar.DLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

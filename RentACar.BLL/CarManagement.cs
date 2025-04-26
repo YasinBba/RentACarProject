@@ -11,19 +11,20 @@ namespace RentACar.BLL
 {
     public class CarManagement : ICar
     {
+        public readonly object ICar;
         YasinRentACarEntities db = new YasinRentACarEntities();
-        public string  AddCar(Cars car)
+        public string AddCar(Cars car)
         {
             try
             {
-              bool saveResult=  ControlSameCar(car.Name, car.Brand, car.Model);
+                bool saveResult = ControlSameCar(car.Name, car.Brand, car.Model);
 
                 if (saveResult)
                 {
                     return "Aynı Model,Marka ve İsimde kayıt içeride mevcut";
                 }
 
-                db.Cars.Add(car);   
+                db.Cars.Add(car);
                 int result = db.SaveChanges();
                 if (result > 0)
                 {
@@ -31,7 +32,7 @@ namespace RentACar.BLL
                 }
                 else
                 {
-                   return "Failed";
+                    return "Failed";
                 }
 
 
@@ -39,11 +40,12 @@ namespace RentACar.BLL
             catch (Exception ex)
             {
 
-                return "Error: " + ex.Message;  
+                return "Error: " + ex.Message;
             }
 
 
         }
+
 
         public bool ControlSameCar(string carName, string carBrand, string carModel)
         {
@@ -54,12 +56,25 @@ namespace RentACar.BLL
             else
             {
                 return false; // Car does not exist
-            }   
+            }
         }
 
         public void DeleteCar(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var car = db.Cars.Find(id);
+                if (car != null)
+                {
+                    db.Cars.Remove(car);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+            }
+
         }
 
         public List<Cars> GetAllCars()
@@ -72,9 +87,43 @@ namespace RentACar.BLL
             throw new NotImplementedException();
         }
 
-        public void UpdateCar(Cars car)
+
+
+
+        public string UpdateCar(Cars car)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingCar = db.Cars.Find(car.Id);
+                if (existingCar != null)
+                {
+                    existingCar.Name = car.Name;
+                    existingCar.Brand = car.Brand;
+                    existingCar.Model = car.Model;
+                    existingCar.Descrpton = car.Descrpton;
+                    existingCar.UpdateDate = DateTime.Now;
+                    existingCar.UpdatorId = 1; // TODO: Get the actual updator ID from the logged-in user
+                    int result = db.SaveChanges();
+                    if (result > 0)
+                    {
+                        return "Güncelleme Başarılı";
+                    }
+                    else
+                    {
+                        return "Güncelleme Başarısız";
+                    }
+                }
+                else
+                {
+                    return "Araç Bulunamadı";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+
         }
+        
     }
 }

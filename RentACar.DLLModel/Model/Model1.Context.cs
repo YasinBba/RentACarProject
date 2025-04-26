@@ -25,10 +25,12 @@ namespace RentACar.DLLModel.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Araclar> Araclar { get; set; }
-        public virtual DbSet<Kiralama> Kiralama { get; set; }
-        public virtual DbSet<Musteriler> Musteriler { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<BrokenCars> BrokenCars { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Employess> Employess { get; set; }
+        public virtual DbSet<RentalCars> RentalCars { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Rules> Rules { get; set; }
     }
 }

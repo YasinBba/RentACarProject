@@ -29,26 +29,35 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.arabalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arabalarToolStripMenuItemCars = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arabalarToolStripMenuItem});
+            this.arabalarToolStripMenuItemCars,
+            this.toolStripMenuItemCustomers});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(978, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // arabalarToolStripMenuItem
+            // arabalarToolStripMenuItemCars
             // 
-            this.arabalarToolStripMenuItem.Name = "arabalarToolStripMenuItem";
-            this.arabalarToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.arabalarToolStripMenuItem.Text = "Arabalar";
-            this.arabalarToolStripMenuItem.Click += new System.EventHandler(this.arabalarToolStripMenuItem_Click);
+            this.arabalarToolStripMenuItemCars.Name = "arabalarToolStripMenuItemCars";
+            this.arabalarToolStripMenuItemCars.Size = new System.Drawing.Size(42, 20);
+            this.arabalarToolStripMenuItemCars.Text = "Cars";
+            this.arabalarToolStripMenuItemCars.Click += new System.EventHandler(this.arabalarToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItemCustomers
+            // 
+            this.toolStripMenuItemCustomers.Name = "toolStripMenuItemCustomers";
+            this.toolStripMenuItemCustomers.Size = new System.Drawing.Size(76, 20);
+            this.toolStripMenuItemCustomers.Text = "Customers";
+            this.toolStripMenuItemCustomers.Click += new System.EventHandler(this.toolStripMenuItemCustomers_Click);
             // 
             // FormMenu
             // 
@@ -70,6 +79,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem arabalarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arabalarToolStripMenuItemCars;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCustomers;
     }
 }

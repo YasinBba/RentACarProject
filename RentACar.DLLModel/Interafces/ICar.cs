@@ -8,7 +8,7 @@ namespace RentACar.DLLModel.Interafces
 
         string AddCar(Cars car);
         Cars GetCar(int id);
-        void UpdateCar(Cars car);
+        string UpdateCar(Cars car);
         List<Cars> GetAllCars();
         void DeleteCar(int id);
         bool ControlSameCar(string carName, string carBrand, string carModel);

@@ -35,5 +35,48 @@ namespace RentACar.Desktop
             dataGridViewAllCars.DataSource = carManagement.GetAllCars();
             MessageBox.Show(result);
         }
+
+        private void toolStripButtonUpdate_Click(object sender, EventArgs e)
+        {
+            Cars cars = new Cars();
+            cars.Id = Convert.ToInt32(dataGridViewAllCars.CurrentRow.Cells[0].Value);
+            cars.Name = textBoxAracTanim.Text;
+            cars.Brand = textBoxAracMarka.Text;
+            cars.Model = textBoxAracModel.Text;
+            cars.Descrpton = textBoxAciklama.Text;
+            cars.UpdateDate = DateTime.Now;
+            cars.UpdatorId = 1; // TODO: Get the actual updator ID from the logged-in user
+            var result = carManagement.UpdateCar(cars);
+            dataGridViewAllCars.DataSource = carManagement.GetAllCars();
+            MessageBox.Show(result);
+        }
+
+        private void dataGridViewAllCars_DoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxAracTanim.Text = dataGridViewAllCars.CurrentRow.Cells[1].Value.ToString();
+            textBoxAracMarka.Text = dataGridViewAllCars.CurrentRow.Cells[2].Value.ToString();
+            textBoxAracModel.Text = dataGridViewAllCars.CurrentRow.Cells[3].Value.ToString();
+            textBoxAciklama.Text = dataGridViewAllCars.CurrentRow.Cells[4].Value.ToString();
+            
+
+        }
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridViewAllCars.CurrentRow.Cells[0].Value);
+            carManagement.DeleteCar(id);
+            dataGridViewAllCars.DataSource = carManagement.GetAllCars();
+            MessageBox.Show("Silme işlemi başarılı");
+
+        }
+
+        private void toolStripButtonClean_Click(object sender, EventArgs e)
+        {
+            textBoxAracTanim.Clear();
+            textBoxAracMarka.Clear();
+            textBoxAracModel.Clear();
+            textBoxAciklama.Clear();
+
+        }
     }
 }
