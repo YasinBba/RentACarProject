@@ -54,7 +54,6 @@
     <Compile Include="BrokenCarsManagment.cs" />
     <Compile Include="CarManagement.cs" />
     <Compile Include="CustomerManagement.cs" />
-    <Compile Include="dtos\RentalCarListDto.cs" />
     <Compile Include="EmployeeManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentalCarManagment.cs" />

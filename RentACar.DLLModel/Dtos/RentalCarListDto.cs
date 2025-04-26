@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentACar.BLL.dtos
+namespace RentACar.DLLModel.Dtos
 {
     public class RentalCarListDto
     {

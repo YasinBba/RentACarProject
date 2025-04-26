@@ -1,4 +1,4 @@
-﻿using RentACar.BLL.dtos;
+﻿using RentACar.DLLModel.Dtos;
 using RentACar.DLLModel.Interafces;
 using RentACar.DLLModel.Model;
 using System;
