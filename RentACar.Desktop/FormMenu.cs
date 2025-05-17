@@ -45,12 +45,7 @@ namespace RentACar.Desktop
             formEmployees.Show();
         }
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormUserPassword formUserPassword = new FormUserPassword();
-            formUserPassword.MdiParent = this;
-            formUserPassword.Show();
-        }
+   
 
         private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,6 +60,14 @@ namespace RentACar.Desktop
             FormBrokenCars formBrokenCars = new FormBrokenCars();
             formBrokenCars.MdiParent = this;
             formBrokenCars.Show();
+
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUsers formUsers = new FormUsers();
+            formUsers.MdiParent = this;
+            formUsers.Show();
 
         }
     }

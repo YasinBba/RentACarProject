@@ -99,11 +99,11 @@
     <Compile Include="FormRules.Designer.cs">
       <DependentUpon>FormRules.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserPassword.cs">
+    <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserPassword.Designer.cs">
-      <DependentUpon>FormUserPassword.cs</DependentUpon>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsers.cs">
       <SubType>Form</SubType>
@@ -134,8 +134,8 @@
     <EmbeddedResource Include="FormRules.resx">
       <DependentUpon>FormRules.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUserPassword.resx">
-      <DependentUpon>FormUserPassword.cs</DependentUpon>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
@@ -148,6 +148,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -172,6 +173,9 @@
       <Project>{7928210b-4a45-4177-a18c-dbe5c70c4a46}</Project>
       <Name>RentACar.DLLModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

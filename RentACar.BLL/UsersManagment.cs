@@ -133,18 +133,38 @@ namespace RentACar.BLL
 
         }
 
-        public List<DLLModel.Model.Users> GetAllUsers()
+        public List<Users> GetAllUsers()
         {
             
             return db.Users.ToList();
 
         }
 
-        public DLLModel.Model.Users GetUser(int id)
+        public Users GetUser(int id)
         {
             throw new NotImplementedException();
         }
 
-        
+        public Users Login(string userName, string password)
+        {
+            try
+            {
+                var getUserLogin = db.Users.Where(k => k.UserName == userName && k.UserPassword == password).FirstOrDefault();
+                if (getUserLogin != null)
+                {
+                    return getUserLogin;
+                }
+                else
+                {
+                    return getUserLogin;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("ERROR:"+ex.Message);
+
+            }
+        }
     }
 }

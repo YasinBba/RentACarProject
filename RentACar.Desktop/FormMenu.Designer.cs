@@ -36,6 +36,7 @@
             this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brokenCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelLoginName = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,11 +105,21 @@
             this.brokenCarsToolStripMenuItem.Text = "Broken Cars";
             this.brokenCarsToolStripMenuItem.Click += new System.EventHandler(this.brokenCarsToolStripMenuItem_Click);
             // 
+            // labelLoginName
+            // 
+            this.labelLoginName.AutoSize = true;
+            this.labelLoginName.Location = new System.Drawing.Point(829, 10);
+            this.labelLoginName.Name = "labelLoginName";
+            this.labelLoginName.Size = new System.Drawing.Size(33, 13);
+            this.labelLoginName.TabIndex = 2;
+            this.labelLoginName.Text = "Login";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 622);
+            this.Controls.Add(this.labelLoginName);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -131,5 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem rulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem brokenCarsToolStripMenuItem;
+        public System.Windows.Forms.Label labelLoginName;
     }
 }

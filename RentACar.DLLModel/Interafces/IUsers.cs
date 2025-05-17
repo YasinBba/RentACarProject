@@ -14,5 +14,8 @@ namespace RentACar.DLLModel.Interafces
         List<Users> GetAllUsers();
         void DeleteUser(int id);
         bool ControlSameUser(string userName,  int id);
+
+         Users Login(string userName, string password);
+      
     }
 }
