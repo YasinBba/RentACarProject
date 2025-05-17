@@ -54,7 +54,8 @@ namespace RentACar.BLL
                             CarName = c.Name,
                             CarBrand = c.Brand,
                             CarModel = c.Model,
-                            CustomerName = cu.FirstName+" "+cu.LastName,
+                            CustomerName = cu.FirstName,
+
                             UserName = u.UserName,
                             StartDate = rc.StartDate,
                             EndDate = rc.EndDate,

@@ -12,9 +12,10 @@ namespace RentACar.DLLModel.Interafces
     {
         string AddRule(Rules rule);
         Rules GetRule(int id);
-        void UpdateRule(Rules rule);
+        string UpdateRule(Rules rule);
         List<Rules> GetAllRules();
         void DeleteRule(int id);
         bool ControlSameRule(string ruleName, string ruleDescription, int id);
+        
     }
 }

@@ -28,6 +28,5 @@ namespace RentACar.DLLModel.Model
         public virtual Cars Cars { get; set; }
         public virtual Customers Customers { get; set; }
         public virtual Users Users { get; set; }
-        public virtual Users Users1 { get; set; }
     }
 }

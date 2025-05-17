@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeManagement.cs" />
+    <Compile Include="FormBrokenCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBrokenCars.Designer.cs">
+      <DependentUpon>FormBrokenCars.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCars.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +93,29 @@
     <Compile Include="FormRentalCars.Designer.cs">
       <DependentUpon>FormRentalCars.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRules.Designer.cs">
+      <DependentUpon>FormRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserPassword.Designer.cs">
+      <DependentUpon>FormUserPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBrokenCars.resx">
+      <DependentUpon>FormBrokenCars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCars.resx">
       <DependentUpon>FormCars.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +130,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRentalCars.resx">
       <DependentUpon>FormRentalCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRules.resx">
+      <DependentUpon>FormRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserPassword.resx">
+      <DependentUpon>FormUserPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,7 +18,6 @@ namespace RentACar.DLLModel.Model
         public Users()
         {
             this.BrokenCars = new HashSet<BrokenCars>();
-            this.BrokenCars1 = new HashSet<BrokenCars>();
             this.RentalCars = new HashSet<RentalCars>();
             this.RentalCars1 = new HashSet<RentalCars>();
             this.RentalCars2 = new HashSet<RentalCars>();
@@ -40,8 +39,6 @@ namespace RentACar.DLLModel.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BrokenCars> BrokenCars { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BrokenCars> BrokenCars1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RentalCars> RentalCars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -29,7 +29,7 @@ namespace RentACar.Desktop
         {
             Customers customers = new Customers();
             customers.FirstName = textBoxName.Text;
-            customers.LastName = textBoxLastName.Text;
+
             customers.Email = textBoxEmail.Text;
             customers.PhoneNumber = textBoxPhone.Text;
             customers.Address = textBoxAddress.Text;
@@ -51,7 +51,7 @@ namespace RentACar.Desktop
             Customers customers = new Customers();
             customers.Id = Convert.ToInt32(dataGridViewAllCustomers.CurrentRow.Cells[0].Value);
             customers.FirstName = textBoxName.Text;
-            customers.LastName = textBoxLastName.Text;
+            
             customers.Email = textBoxEmail.Text;
             customers.PhoneNumber = textBoxPhone.Text;
             customers.Address = textBoxAddress.Text;

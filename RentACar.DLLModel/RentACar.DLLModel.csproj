@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\BrokenCarListDto.cs" />
     <Compile Include="Dtos\RentalCarListDto.cs" />
     <Compile Include="Interafces\IBrokenCars.cs" />
     <Compile Include="Interafces\IEmployees.cs" />

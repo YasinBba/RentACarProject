@@ -30,7 +30,7 @@ namespace RentACar.DLLModel.Model
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employess> Employess { get; set; }
         public virtual DbSet<RentalCars> RentalCars { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Rules> Rules { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

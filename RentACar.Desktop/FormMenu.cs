@@ -37,5 +37,35 @@ namespace RentACar.Desktop
             formRentalCar.MdiParent = this;
             formRentalCar.Show();
         }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEmployees formEmployees = new FormEmployees();
+            formEmployees.MdiParent = this;
+            formEmployees.Show();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUserPassword formUserPassword = new FormUserPassword();
+            formUserPassword.MdiParent = this;
+            formUserPassword.Show();
+        }
+
+        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRules formRules = new FormRules();
+            formRules.MdiParent = this;
+            formRules.Show();
+
+        }
+
+        private void brokenCarsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBrokenCars formBrokenCars = new FormBrokenCars();
+            formBrokenCars.MdiParent = this;
+            formBrokenCars.Show();
+
+        }
     }
 }

@@ -59,8 +59,8 @@
     <Compile Include="RentalCarManagment.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="RuleManagment.cs" />
-    <Compile Include="UserManagment.cs" />
     <Compile Include="Users.cs" />
+    <Compile Include="UsersManagment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RentACar.DLLModel\RentACar.DLLModel.csproj">

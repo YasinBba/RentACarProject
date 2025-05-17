@@ -20,7 +20,7 @@ namespace RentACar.BLL
         {
             try
             {
-                bool saveResult = ControlSameCustomer(customers.FirstName, customers.LastName, customers.Email, customers.Id);
+                bool saveResult = ControlSameCustomer(customers.FirstName, customers.Email, customers.Id);
                 if (saveResult)
                 {
                     return "Aynı isimde kayıt içeride mevcut";
@@ -43,9 +43,14 @@ namespace RentACar.BLL
             }
         }
 
-        public bool ControlSameCustomer(string firstName, string lastName, string email, int id)
+        public bool ControlSameCustomer(string namesurname, string email, int id)
         {
-            if (db.Customers.Any(c => c.FirstName == firstName && c.LastName == lastName && c.Email == email && c.Id != id))
+            if (db.Customers.Any(c => c.FirstName == namesurname && c.Email == email && c.Id != id))
+            {
+                return true; // Customer already exists
+            }
+            else if (db.Customers.Any(c => c.FirstName == namesurname
+            && c.Email == email && c.Id != id))
             {
                 return true; // Customer already exists
             }
@@ -55,6 +60,9 @@ namespace RentACar.BLL
             }
 
         }
+
+        
+        
 
         public void DeleteCustomer(int id)
         {
@@ -104,7 +112,7 @@ namespace RentACar.BLL
                 if (existingCustomer != null)
                 {
                     existingCustomer.FirstName = customer.FirstName;
-                    existingCustomer.LastName = customer.LastName;
+
                     existingCustomer.Email = customer.Email;
                     existingCustomer.PhoneNumber = customer.PhoneNumber;
                     existingCustomer.Address = customer.Address;
