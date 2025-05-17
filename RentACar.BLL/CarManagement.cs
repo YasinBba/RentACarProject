@@ -1,63 +1,129 @@
-﻿using System;
+﻿
+
+using RentACar.DLLModel.Interafces;
+using RentACar.DLLModel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RentACar.DLL.Interfaces;
-using RentACar.DLL.Entities;
-using RentACar.DLL.Entities.Abstraction;
+
 
 namespace RentACar.BLL
 {
     public class CarManagement : ICar
     {
-        public void Delete(int id)
+        public readonly object ICar;
+        YasinRentACarEntities db = new YasinRentACarEntities();
+        public string AddCar(Cars car)
         {
-              /* Abstract ve Interface class türleri new lenemezler , sadece OOP de KALITIM VERMEK İÇİN oluşturulur  
-            BaseEntity baseEntity = new BaseEntity();
-            ICa */
+            try
+            {
+                bool saveResult = ControlSameCar(car.Name, car.Brand, car.Model);
+
+                if (saveResult)
+                {
+                    return "Aynı Model,Marka ve İsimde kayıt içeride mevcut";
+                }
+
+                db.Cars.Add(car);
+                int result = db.SaveChanges();
+                if (result > 0)
+                {
+                    return "Success";
+                }
+                else
+                {
+                    return "Failed";
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return "Error: " + ex.Message;
+            }
+
+
+        }
+
+
+        public bool ControlSameCar(string carName, string carBrand, string carModel)
+        {
+            if (db.Cars.Any(c => c.Name == carName && c.Brand == carBrand && c.Model == carModel))
+            {
+                return true; // Car already exists
+            }
+            else
+            {
+                return false; // Car does not exist
+            }
+        }
+
+        public void DeleteCar(int id)
+        {
+            try
+            {
+                var car = db.Cars.Find(id);
+                if (car != null)
+                {
+                    db.Cars.Remove(car);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+            }
+
+        }
+
+        public List<Cars> GetAllCars()
+        {
+            return db.Cars.ToList();
+        }
+
+        public Cars GetCar(int id)
+        {
             throw new NotImplementedException();
         }
 
-        public List<Cars> GetAll()
-        {
-            throw new NotImplementedException();
-            
-        }
 
-        public List<Cars> GetByBrand(string brand)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void GetByColor(string color)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Cars GetById(int id)
+        public string UpdateCar(Cars car)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var existingCar = db.Cars.Find(car.Id);
+                if (existingCar != null)
+                {
+                    existingCar.Name = car.Name;
+                    existingCar.Brand = car.Brand;
+                    existingCar.Model = car.Model;
+                    existingCar.Descrpton = car.Descrpton;
+                    existingCar.UpdateDate = DateTime.Now;
+                    existingCar.UpdatorId = 1; // TODO: Get the actual updator ID from the logged-in user
+                    int result = db.SaveChanges();
+                    if (result > 0)
+                    {
+                        return "Güncelleme Başarılı";
+                    }
+                    else
+                    {
+                        return "Güncelleme Başarısız";
+                    }
+                }
+                else
+                {
+                    return "Araç Bulunamadı";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
 
-        public void GetByModel(string model)
-        {
-            throw new NotImplementedException();
         }
-
-        public void GetByYear(short year)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int id, string brand, string model, string color, short year, decimal pricePerDay, DateTime createsAt, int creatorId, DateTime updateDate, int updateId, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
