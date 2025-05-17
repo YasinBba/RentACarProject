@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeManagement.cs" />
+    <Compile Include="Enums\RuleEnum.cs" />
     <Compile Include="FormBrokenCars.cs">
       <SubType>Form</SubType>
     </Compile>

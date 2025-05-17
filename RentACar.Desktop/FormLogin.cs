@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,10 +29,19 @@ namespace RentACar.Desktop
                 string userName = textBox1.Text;
                 string password = textBox2.Text;
                 var login= usersManagment.Login(userName, password);
+
+                /*
+                1- Session => Server tarafında saklanır.
+                2-Cookie=> Client tarafında saklanır.
+                3- JWT (Json Web Token)=> Client tarafında saklanır.
+                 
+                 */
                 if (login!=null)
                 {
                     FormMenu formMenu = new FormMenu();
                     formMenu.labelLoginName.Text = login.UserName;
+                    formMenu.UserRole = login.UserRole;
+
                     formMenu.Show();//Menu göster
                     this.Hide();//Login
                 }
