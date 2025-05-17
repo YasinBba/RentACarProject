@@ -28,9 +28,22 @@ namespace RentACar.Desktop
             comboBoxCarName.DisplayMember = "Name";
             comboBoxCarName.ValueMember = "Id";
             comboBoxCarName.DataSource = db.Cars.ToList();
-            comboBoxCustomerName.DisplayMember = "CustomerName";
-            comboBoxCustomerName.ValueMember = "Id";
-            comboBoxCustomerName.DataSource = db.Customers.ToList();
+            //
+
+         
+
+            //comboBoxCustomerName.DisplayMember = "FirstName";//Customer tablosundaki hangi alanı göstereceğini belirtiyoruz. Kolo adı 1-1 eşleşmeli, tek karakter bile farklı olmamalı
+            comboBoxCustomerName.DisplayMember = "FullName";//Customer tablosundaki hangi alanı göstereceğini belirtiyoruz. Kolo adı 1-1 eşleşmeli, tek karakter bile farklı olmamalı
+            //Value => DisplayMember = "FirstName" + " " + "LastName"; //Customer tablosundaki FirstName ve LastName alanlarını birleştirip göstereceğiz.
+            comboBoxCustomerName.ValueMember = "Id";//Key alanı, yani Customer tablosundaki Id alanını kullanıyoruz.
+            //comboBoxCustomerName.DataSource = db.Customers.ToList();
+            comboBoxCustomerName.DataSource = db.Customers.
+                Select(y=>new
+                {
+                    Id=y.Id,
+                    FullName=y.FirstName+ " " + y.LastName //Customer tablosundaki FirstName ve LastName alanlarını birleştirip göstereceğiz.
+
+                }).ToList();
 
 
 
@@ -42,6 +55,7 @@ namespace RentACar.Desktop
             brokenCars.CarId = Convert.ToInt32(comboBoxCarName.SelectedValue);
             brokenCars.CustomerId = Convert.ToInt32(comboBoxCustomerName.SelectedValue);
             brokenCars.CreateDate = dateTimePicker1.Value;
+            brokenCars.UpdateDate = dateTimePicker1.Value;
             brokenCars.BrokenDescription = textBoxDescription.Text;
             brokenCars.CreatorId = 1; // TODO: Get the actual creator ID from the logged-in user
             var result = brokenCarsManagment.AddBrokenCar(brokenCars);
