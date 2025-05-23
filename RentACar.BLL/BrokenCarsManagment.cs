@@ -119,7 +119,7 @@ namespace RentACar.BLL
         {
             //Linq ile join kodlamak
             //Linq ile join kodlamak
-            ;
+            
 
             
             var list = (from bc in db.BrokenCars
