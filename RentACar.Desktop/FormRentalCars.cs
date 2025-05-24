@@ -147,5 +147,37 @@ namespace RentACar.Desktop
         {
             
         }
+
+        private void comboBoxDaytime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string secilenGun = comboBoxDaytime.SelectedItem.ToString();
+            LblSonuc.Visible = true;
+
+            if (secilenGun=="1-6 gün")
+            {
+                LblSonuc.Text = "1-6 gün arası seçildi.";
+            }
+            else if (secilenGun == "7-29 gün")
+            {
+                LblSonuc.Text = "7-29 gün arası seçildi.";
+            }
+            else if (secilenGun == "30-89 gün")
+            {
+                LblSonuc.Text = "30-89 gün arası seçildi.";
+            }
+            else if (secilenGun == "90-179 gün")
+            {
+                LblSonuc.Text = "90-179 gün arası seçildi.";
+            }
+            else if (secilenGun == "180-364 gün")
+            {
+                LblSonuc.Text = "180-364 gün arası seçildi.";
+            }
+            else if (secilenGun == "365-> gün")
+            {
+                LblSonuc.Text = "365 günden fazla seçildi.";
+            }   
+
+        }
     }
 }

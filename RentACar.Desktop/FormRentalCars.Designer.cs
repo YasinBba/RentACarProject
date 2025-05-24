@@ -315,6 +315,7 @@
             this.comboBoxDaytime.Name = "comboBoxDaytime";
             this.comboBoxDaytime.Size = new System.Drawing.Size(200, 21);
             this.comboBoxDaytime.TabIndex = 3;
+            this.comboBoxDaytime.SelectedIndexChanged += new System.EventHandler(this.comboBoxDaytime_SelectedIndexChanged);
             // 
             // comboBoxCarPrice
             // 
