@@ -25,17 +25,17 @@ namespace RentACar.DLLModel.Model
     
         public int Id { get; set; }
         public string UserName { get; set; }
-        public string UserEmail { get; set; }
         public string UserPassword { get; set; }
-        public string UserPhone { get; set; }
         public string UserRole { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPhone { get; set; }
         public int UserId { get; set; }
         public System.DateTime CreateDate { get; set; }
         public int CreatorId { get; set; }
-        public System.DateTime UpdateDate { get; set; }
-        public int UpdatorId { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<int> UpdatorId { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BrokenCars> BrokenCars { get; set; }

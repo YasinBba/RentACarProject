@@ -56,6 +56,7 @@
             this.dataGridViewBrokenCarList.Name = "dataGridViewBrokenCarList";
             this.dataGridViewBrokenCarList.Size = new System.Drawing.Size(730, 224);
             this.dataGridViewBrokenCarList.TabIndex = 0;
+            this.dataGridViewBrokenCarList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBrokenCarList_DoubleClick);
             // 
             // toolStripButtonSave
             // 
@@ -73,6 +74,7 @@
             this.toolStripButtonUpdate.Name = "toolStripButtonUpdate";
             this.toolStripButtonUpdate.Size = new System.Drawing.Size(65, 22);
             this.toolStripButtonUpdate.Text = "Update";
+            this.toolStripButtonUpdate.Click += new System.EventHandler(this.toolStripButtonUpdate_Click);
             // 
             // toolStripButtonDelete
             // 
@@ -81,6 +83,7 @@
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
             this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
             this.toolStripButtonDelete.Text = "Delete";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // toolStripButtonClean
             // 
@@ -89,6 +92,7 @@
             this.toolStripButtonClean.Name = "toolStripButtonClean";
             this.toolStripButtonClean.Size = new System.Drawing.Size(57, 22);
             this.toolStripButtonClean.Text = "Clean";
+            this.toolStripButtonClean.Click += new System.EventHandler(this.toolStripButtonClean_Click);
             // 
             // toolStrip1
             // 

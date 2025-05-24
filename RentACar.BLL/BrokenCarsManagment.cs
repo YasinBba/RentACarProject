@@ -21,7 +21,7 @@ namespace RentACar.BLL
                   
                 db.BrokenCars.Add(brokenCar);
                 int result = db.SaveChanges();
-                if (true )
+                if (result > 0 )
                 {
                     return "Success";
                 }
@@ -84,7 +84,42 @@ namespace RentACar.BLL
             throw new NotImplementedException();
         }
 
-        public void UpdateBrokenCar(BrokenCars brokenCar)
+        
+        public List<BrokenCarListDto> GetAllBrokenCarListDto()
+        {
+            //Linq ile join kodlamak
+            //Linq ile join kodlamak
+            
+
+            
+            var list = (from b in db.BrokenCars
+                        join c in db.Cars on b.CarId equals c.Id
+                        join cu in db.Customers on b.CustomerId equals cu.Id
+                        join u in db.Users on b.CreatorId equals u.Id
+                        
+                        where b.IsActive == "True"
+                        select new BrokenCarListDto
+                        {
+                            Id = b.Id,
+                            CarName = c.Name,
+                            CarBrand = c.Brand,
+                            CarModel = c.Model,
+                            CustomerName = cu.FirstName ,
+                            UserName = u.UserName,
+                            
+                            
+                            Description = b.Description,
+                            CreateDate = b.CreateDate,
+                            CreatorName = u.UserName,
+                            UpdateDate = b.UpdateDate,
+                            UpdatorName = u.UserName,
+                            IsActive = b.IsActive
+                        }).ToList();
+            
+            return list;
+        }
+
+        public string UpdateBrokenCar(BrokenCars brokenCar)
         {
             try
             {
@@ -94,58 +129,22 @@ namespace RentACar.BLL
                     existingBrokenCar.CarId = brokenCar.CarId;
                     existingBrokenCar.CustomerId = brokenCar.CustomerId;
                     existingBrokenCar.BrokenDescription = brokenCar.BrokenDescription;
-                    existingBrokenCar.CreateDate = brokenCar.CreateDate;
-                    existingBrokenCar.CreatorId = brokenCar.CreatorId;
                     existingBrokenCar.UpdateDate = brokenCar.UpdateDate;
                     existingBrokenCar.UpdatorId = brokenCar.UpdatorId;
-                    existingBrokenCar.Description = brokenCar.Description;
                     existingBrokenCar.IsActive = brokenCar.IsActive;
-                    existingBrokenCar.Cars = brokenCar.Cars;
-                    existingBrokenCar.Customers = brokenCar.Customers;
-                    existingBrokenCar.Users = brokenCar.Users;
 
                     db.SaveChanges();
+                    return "Güncelleme başarılı";
                 }
-
+                else
+                {
+                    return "Kayıt bulunamadı";
+                }
             }
             catch (Exception ex)
             {
-
-               throw new Exception   ("Error: " + ex.Message);
+                return "Hata: " + ex.Message;
             }
-            
-        }
-        public List<BrokenCarListDto> GetAllBrokenCarListDto()
-        {
-            //Linq ile join kodlamak
-            //Linq ile join kodlamak
-            
-
-            
-            var list = (from bc in db.BrokenCars
-                        join c in db.Cars on bc.CarId equals c.Id
-                        join cu in db.Customers on bc.CustomerId equals cu.Id
-                        join u in db.Users on bc.CreatorId equals u.Id
-                        join rc in db.RentalCars on bc.CustomerId equals rc.Id
-                        select new BrokenCarListDto
-                        {
-                            Id = bc.Id,
-                            CarName = c.Name,
-                            CarBrand = c.Brand,
-                            CarModel = c.Model,
-                            CustomerName = cu.FirstName ,
-                            UserName = u.UserName,
-                            StartDate = rc.StartDate,
-                            EndDate = rc.EndDate,
-                            
-                            Description = bc.Description,
-                            CreateDate = bc.CreateDate,
-                            CreatorName = u.UserName,
-                            UpdateDate = bc.UpdateDate,
-                            UpdatorName = u.UserName,
-                            IsActive = bc.IsActive
-                        }).ToList();
-            return list;
         }
     }
 }

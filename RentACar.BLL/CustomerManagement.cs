@@ -20,7 +20,7 @@ namespace RentACar.BLL
         {
             try
             {
-                bool saveResult = ControlSameCustomer(customers.FirstName, customers.Email, customers.Id);
+                bool saveResult = ControlSameCustomer(customers.FirstName, customers.LastName, customers.Email, customers.Id);
                 if (saveResult)
                 {
                     return "Aynı isimde kayıt içeride mevcut";
@@ -35,7 +35,7 @@ namespace RentACar.BLL
                 {
                     return "Failed";
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -43,14 +43,14 @@ namespace RentACar.BLL
             }
         }
 
-        public bool ControlSameCustomer(string namesurname, string email, int id)
+        public bool ControlSameCustomer(string firstname, string lastname, string email, int id)
         {
-            if (db.Customers.Any(c => c.FirstName == namesurname && c.Email == email && c.Id != id))
+            if (db.Customers.Any(c => c.FirstName == firstname && c.LastName == lastname && c.Email == email && c.Id != id))
             {
                 return true; // Customer already exists
             }
-            else if (db.Customers.Any(c => c.FirstName == namesurname
-            && c.Email == email && c.Id != id))
+            else if (db.Customers.Any(c => c.FirstName == firstname
+            && c.LastName == lastname && c.Email == email && c.Id != id))
             {
                 return true; // Customer already exists
             }
@@ -61,42 +61,37 @@ namespace RentACar.BLL
 
         }
 
-        
-        
 
-        public void DeleteCustomer(int id)
+
+        public string DeleteCustomer(int id)
         {
             try
             {
                 var customer = db.Customers.Find(id);
                 if (customer != null)
                 {
-                    db.Customers.Remove(customer);
-                    int result = db.SaveChanges();
-                    if (result > 0)
-                    {
-                        Console.WriteLine("Silme Başarılı.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Silme Başarısız.");
-                    }
+                    customer.IsActive = false; 
+                    customer.UpdateDate = DateTime.Now; 
+                    db.SaveChanges();
+                    return "Müşteri Silindi.";
                 }
                 else
                 {
-                    Console.WriteLine("Müşteri Bulunamadı.");
+                    return "Müşteri bulunamadı.";
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error deleting customer: " + ex.Message);
+                return "Hata: " + ex.Message;
             }
-
         }
 
         public List<Customers> GetAllCustomers()
         {
-            return db.Customers.ToList();
+            return db.Customers
+              .Where(c => c.IsActive == true) 
+              .ToList();
+            
         }
 
         public Customers GetCustomer(int id)

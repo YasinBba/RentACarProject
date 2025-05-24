@@ -11,11 +11,11 @@ namespace RentACar.DLLModel.Interafces
     {
         string AddRentalCar(RentalCars rentalCar);
         RentalCars GetRentalCar(int id);
-        void UpdateRentalCar(RentalCars rentalCar);
+        string UpdateRentalCar(RentalCars rentalCar);
         List<RentalCars> GetAllRentalCars();
         void DeleteRentalCar(int id);
       
-        bool ControlSameRentalCar(string carName, string carBrand, string carModel, int id);
+        bool ControlSameRentalCar(string carName, string carBrand,string customerName, string carModel, int id);
         
     }
 }

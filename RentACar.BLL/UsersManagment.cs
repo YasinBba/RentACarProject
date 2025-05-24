@@ -3,20 +3,20 @@ using RentACar.DLLModel.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
+
 
 namespace RentACar.BLL
 {
-    public class UsersManagment:IUsers
+    public class UsersManagment : IUsers
     {
         public readonly object IUsers;
         YasinRentACarEntities db = new YasinRentACarEntities();
 
-        public string AddUser(DLLModel.Model.Users user)
+        public string AddUser(Users user)
         {
             try
             {
-                bool saveResult = ControlSameUser(user.UserName,user.UserId);
+                bool saveResult = ControlSameUser(user.UserName, user.UserId);
 
                 if (saveResult)
                 {
@@ -48,7 +48,7 @@ namespace RentACar.BLL
 
         public bool ControlSameUser(string userName, int id)
         {
-            if (db.Users.Any(c => c.UserName == userName  && c.Id != id))
+            if (db.Users.Any(c => c.UserName == userName && c.Id != id))
             {
                 return true; // User already exists
             }
@@ -58,7 +58,7 @@ namespace RentACar.BLL
             }
 
         }
-        public void UpdateUser(DLLModel.Model.Users user)
+        public string UpdateUser(Users user)
         {
             try
             {
@@ -69,46 +69,34 @@ namespace RentACar.BLL
                     existingUser.UserPassword = user.UserPassword;
                     existingUser.UserEmail = user.UserEmail;
                     existingUser.UserPhone = user.UserPhone;
-                    existingUser.UserRole = user.UserRole;
+                    existingUser.UserRole = "User"; // Bu uygulamanın gereğine göre dinamik yapılabilir
                     existingUser.Description = user.Description;
-                    existingUser.IsActive = user.IsActive;
-                    existingUser.CreateDate = user.CreateDate;
-                    existingUser.CreatorId = user.CreatorId;
-                    existingUser.Id = user.Id;
-                    existingUser.UpdatorId = user.UpdatorId;
-                    existingUser.UserId = user.UserId;  
-                    existingUser.UpdateDate = user.UpdateDate;
 
+                    // CreateDate ve CreatorId DEĞİŞTİRİLMEZ!
+                    existingUser.UpdateDate = DateTime.Now;
+                    existingUser.UpdatorId = 1;
 
                     int result = db.SaveChanges();
                     if (result > 0)
                     {
-                        throw new Exception("Success");
+                        return "Güncelleme başarılı";
                     }
                     else
                     {
-
-                        throw new Exception("Failed");
-
+                        return "Güncelleme başarısız";
                     }
-
-
                 }
                 else
                 {
-
-                    throw new Exception("User not found");
+                    return "Kullanıcı bulunamadı";
                 }
-
             }
             catch (Exception ex)
             {
-                throw new Exception("Error: " + ex.Message);
-
-
+                return "Hata: " + ex.Message + "\n" + (ex.InnerException?.Message ?? "");
             }
 
-           
+
         }
 
         public void DeleteUser(int id)
@@ -135,7 +123,7 @@ namespace RentACar.BLL
 
         public List<Users> GetAllUsers()
         {
-            
+
             return db.Users.ToList();
 
         }
@@ -162,7 +150,7 @@ namespace RentACar.BLL
             catch (Exception ex)
             {
 
-                throw new Exception("ERROR:"+ex.Message);
+                throw new Exception("ERROR:" + ex.Message);
 
             }
         }

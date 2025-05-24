@@ -5,16 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2f78c868b95840b08b24617194ebd7e9" Name="Diagram1" ZoomLevel="61">
-        <EntityTypeShape EntityType="YasinRentACarModel.BrokenCars" Width="1.5" PointX="6" PointY="5.875" />
-        <EntityTypeShape EntityType="YasinRentACarModel.Cars" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="YasinRentACarModel.Customers" Width="1.5" PointX="3.75" PointY="11.625" />
-        <EntityTypeShape EntityType="YasinRentACarModel.Employess" Width="1.5" PointX="8.75" PointY="2.625" />
-        <EntityTypeShape EntityType="YasinRentACarModel.RentalCars" Width="1.5" PointX="3" PointY="5.25" />
-        <EntityTypeShape EntityType="YasinRentACarModel.Rules" Width="1.5" PointX="8.75" PointY="7.625" />
-        <EntityTypeShape EntityType="YasinRentACarModel.Users" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="YasinRentACarModel.BrokenCars" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="YasinRentACarModel.Cars" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YasinRentACarModel.Customers" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="YasinRentACarModel.Employess" Width="1.5" PointX="8.75" PointY="3" />
+        <EntityTypeShape EntityType="YasinRentACarModel.RentalCars" Width="1.5" PointX="6" PointY="5.625" />
+        <EntityTypeShape EntityType="YasinRentACarModel.Users" Width="1.5" PointX="0.75" PointY="5.75" />
         <AssociationConnector Association="YasinRentACarModel.FK_BrokenCars_Cars" />
         <AssociationConnector Association="YasinRentACarModel.FK_BrokenCars_Customers" />
-        <AssociationConnector Association="YasinRentACarModel.FK_BrokenCars_Users" />
+        <AssociationConnector Association="YasinRentACarModel.FK_BrokenCars_Users1" />
         <AssociationConnector Association="YasinRentACarModel.FK_RentalCars_Cars" />
         <AssociationConnector Association="YasinRentACarModel.FK_RentalCars_Customers" />
         <AssociationConnector Association="YasinRentACarModel.FK_RentalCars_Users" />

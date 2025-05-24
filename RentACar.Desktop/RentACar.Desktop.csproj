@@ -42,6 +42,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -94,12 +95,6 @@
     <Compile Include="FormRentalCars.Designer.cs">
       <DependentUpon>FormRentalCars.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRules.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRules.Designer.cs">
-      <DependentUpon>FormRules.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRentalCars.resx">
       <DependentUpon>FormRentalCars.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRules.resx">
-      <DependentUpon>FormRules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

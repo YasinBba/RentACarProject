@@ -13,9 +13,9 @@ namespace RentACar.DLLModel.Interafces
         Customers GetCustomer(int id);
         void UpdateCustomer(Customers customer);
         List<Customers> GetAllCustomers();
-        void DeleteCustomer(int id);
+        string DeleteCustomer(int id);
        
-        bool ControlSameCustomer(string firstname,  string email, int id);
+        bool ControlSameCustomer(string firstname,string lastname,  string email, int id);
 
 
     }

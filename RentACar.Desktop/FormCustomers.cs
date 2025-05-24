@@ -29,12 +29,14 @@ namespace RentACar.Desktop
         {
             Customers customers = new Customers();
             customers.FirstName = textBoxName.Text;
+            customers.LastName = textBoxLastName.Text;
 
             customers.Email = textBoxEmail.Text;
             customers.PhoneNumber = textBoxPhone.Text;
             customers.Address = textBoxAddress.Text;
             customers.Description = textBoxDescription.Text;
             customers.CreateDate = DateTime.Now;
+            customers.IsActive = true;
             customers.CreatorId = 1; // TODO: Get the actual creator ID from the logged-in user
             customers.DateOfBirth = dateTimePicker1.Value;
             var result = customerManagement.AddCustomer(customers);
@@ -82,11 +84,24 @@ namespace RentACar.Desktop
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
         {
-            CustomerManagement customerManagement = new CustomerManagement();
-            int id = Convert.ToInt32(dataGridViewAllCustomers.CurrentRow.Cells[0].Value);
-            customerManagement.DeleteCustomer(id);
-            dataGridViewAllCustomers.DataSource = customerManagement.GetAllCustomers();
-            MessageBox.Show("Customer deleted successfully.");
+            if (dataGridViewAllCustomers.CurrentRow == null)
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz müşteriyi seçin.");
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show("Bu müşteriyi silmek istediğinizden emin misiniz?", "Onay", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dataGridViewAllCustomers.CurrentRow.Cells[0].Value);
+                CustomerManagement customerManagement = new CustomerManagement();
+                string result = customerManagement.DeleteCustomer(id);
+
+                // Güncel veriyi al
+                dataGridViewAllCustomers.DataSource = customerManagement.GetAllCustomers();
+
+                MessageBox.Show(result);
+            }
 
         }
 

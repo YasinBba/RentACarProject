@@ -10,7 +10,7 @@ namespace RentACar.DLLModel.Interafces
     {
         string AddUser(Users user);
         Users GetUser(int id);
-        void UpdateUser(Users user);
+        string UpdateUser(Users user);
         List<Users> GetAllUsers();
         void DeleteUser(int id);
         bool ControlSameUser(string userName,  int id);

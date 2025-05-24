@@ -47,11 +47,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridViewAllEmployees = new System.Windows.Forms.DataGridView();
+            this.dataGridViewAllUsers = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllUsers)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 96);
+            this.label3.Location = new System.Drawing.Point(47, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 15;
@@ -92,23 +92,22 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(88, 93);
+            this.textBoxEmail.Location = new System.Drawing.Point(88, 124);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(121, 20);
-            this.textBoxEmail.TabIndex = 16;
+            this.textBoxEmail.TabIndex = 5;
             // 
             // textBoxRole
             // 
-            this.textBoxRole.Location = new System.Drawing.Point(297, 16);
-            this.textBoxRole.Multiline = true;
+            this.textBoxRole.Location = new System.Drawing.Point(88, 70);
             this.textBoxRole.Name = "textBoxRole";
-            this.textBoxRole.Size = new System.Drawing.Size(232, 26);
-            this.textBoxRole.TabIndex = 13;
+            this.textBoxRole.Size = new System.Drawing.Size(121, 20);
+            this.textBoxRole.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(220, 22);
+            this.label2.Location = new System.Drawing.Point(11, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 12;
@@ -117,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 70);
+            this.label5.Location = new System.Drawing.Point(35, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 0;
@@ -147,24 +146,24 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(88, 41);
+            this.textBoxPassword.Location = new System.Drawing.Point(88, 45);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(121, 20);
-            this.textBoxPassword.TabIndex = 9;
+            this.textBoxPassword.TabIndex = 2;
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(88, 67);
+            this.textBoxPhone.Location = new System.Drawing.Point(88, 98);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(121, 20);
-            this.textBoxPhone.TabIndex = 7;
+            this.textBoxPhone.TabIndex = 4;
             // 
             // textBoxUserName
             // 
             this.textBoxUserName.Location = new System.Drawing.Point(88, 19);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxUserName.TabIndex = 6;
+            this.textBoxUserName.TabIndex = 1;
             // 
             // label7
             // 
@@ -177,16 +176,16 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(297, 48);
+            this.textBoxDescription.Location = new System.Drawing.Point(282, 22);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(232, 51);
-            this.textBoxDescription.TabIndex = 3;
+            this.textBoxDescription.TabIndex = 6;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(241, 48);
+            this.label8.Location = new System.Drawing.Point(226, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 2;
@@ -208,7 +207,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 153);
+            this.groupBox1.Size = new System.Drawing.Size(629, 144);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kullanıcı Ekleme";
@@ -216,25 +215,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 44);
+            this.label6.Location = new System.Drawing.Point(12, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Şifre:";
             // 
-            // dataGridViewAllEmployees
+            // dataGridViewAllUsers
             // 
-            this.dataGridViewAllEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAllEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewAllEmployees.Location = new System.Drawing.Point(3, 16);
-            this.dataGridViewAllEmployees.Name = "dataGridViewAllEmployees";
-            this.dataGridViewAllEmployees.Size = new System.Drawing.Size(621, 237);
-            this.dataGridViewAllEmployees.TabIndex = 0;
-            this.dataGridViewAllEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAllEmployees_DoubleClick);
+            this.dataGridViewAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAllUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewAllUsers.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewAllUsers.Name = "dataGridViewAllUsers";
+            this.dataGridViewAllUsers.Size = new System.Drawing.Size(621, 237);
+            this.dataGridViewAllUsers.TabIndex = 0;
+            this.dataGridViewAllUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAllEmployees_DoubleClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridViewAllEmployees);
+            this.groupBox2.Controls.Add(this.dataGridViewAllUsers);
             this.groupBox2.Location = new System.Drawing.Point(8, 190);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(627, 256);
@@ -257,7 +256,7 @@
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllUsers)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -284,7 +283,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridViewAllEmployees;
+        private System.Windows.Forms.DataGridView dataGridViewAllUsers;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }

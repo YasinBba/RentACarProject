@@ -60,7 +60,6 @@
     <Compile Include="Interafces\ICar.cs" />
     <Compile Include="Interafces\ICustomers.cs" />
     <Compile Include="Interafces\IRentalCars.cs" />
-    <Compile Include="Interafces\IRules.cs" />
     <Compile Include="Interafces\IUsers.cs" />
     <Compile Include="Model\BrokenCars.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -90,9 +89,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\RentalCars.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Rules.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Users.cs">

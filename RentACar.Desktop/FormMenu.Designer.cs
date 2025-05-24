@@ -33,7 +33,6 @@
             this.toolStripMenuItemCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemRentalCars = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brokenCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelLoginName = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.toolStripMenuItemCustomers,
             this.ToolStripMenuItemRentalCars,
             this.usersToolStripMenuItem,
-            this.rulesToolStripMenuItem,
             this.employeesToolStripMenuItem,
             this.brokenCarsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -83,13 +81,6 @@
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // rulesToolStripMenuItem
-            // 
-            this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
-            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.rulesToolStripMenuItem.Text = "Rules";
-            this.rulesToolStripMenuItem.Click += new System.EventHandler(this.rulesToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
@@ -142,7 +133,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCustomers;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRentalCars;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem brokenCarsToolStripMenuItem;
         public System.Windows.Forms.Label labelLoginName;

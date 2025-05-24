@@ -11,7 +11,7 @@ namespace RentACar.DLLModel.Interafces
     {
         string AddBrokenCar(BrokenCars brokenCar);
         BrokenCars GetBrokenCar(int id);
-        void UpdateBrokenCar(BrokenCars brokenCar);
+        string UpdateBrokenCar(BrokenCars brokenCar);
         List<BrokenCars> GetAllBrokenCars();
         void DeleteBrokenCar(int id);
         bool ControlSameBrokenCar(string carName, string carBrand, string carModel, int id);

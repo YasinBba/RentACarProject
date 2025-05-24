@@ -59,27 +59,37 @@ namespace RentACar.BLL
             }
         }
 
-        public void DeleteCar(int id)
+        public string DeleteCar(int id)
         {
             try
             {
                 var car = db.Cars.Find(id);
                 if (car != null)
                 {
-                    db.Cars.Remove(car);
+                    
+                    car.IsActive = false; // soft delete = pasifleştirme
+                    car.UpdateDate = DateTime.Now; // varsa
                     db.SaveChanges();
+                    return "Araç pasif hale getirildi.";
+                }
+                else
+                {
+                    return "Araç bulunamadı.";
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error: " + ex.Message);
+                return "Hata: " + ex.Message;
             }
 
         }
 
         public List<Cars> GetAllCars()
         {
-            return db.Cars.ToList();
+            
+            return db.Cars
+            .Where(c => c.IsActive == true) // veya c.IsActive == "True" eğer string ise
+            .ToList();
         }
 
         public Cars GetCar(int id)
@@ -100,6 +110,8 @@ namespace RentACar.BLL
                     existingCar.Name = car.Name;
                     existingCar.Brand = car.Brand;
                     existingCar.Model = car.Model;
+                    existingCar.PricePerDay = car.PricePerDay;
+                    existingCar.FuelAmount = car.FuelAmount;
                     existingCar.Descrpton = car.Descrpton;
                     existingCar.UpdateDate = DateTime.Now;
                     existingCar.UpdatorId = 1; // TODO: Get the actual updator ID from the logged-in user

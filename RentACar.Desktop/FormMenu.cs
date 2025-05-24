@@ -49,13 +49,7 @@ namespace RentACar.Desktop
 
 
 
-        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormRules formRules = new FormRules();
-            formRules.MdiParent = this;
-            formRules.Show();
-
-        }
+       
 
         private void brokenCarsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,17 +69,17 @@ namespace RentACar.Desktop
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            rulesToolStripMenuItem.Visible = false;
-            brokenCarsToolStripMenuItem.Visible = false;
-            arabalarToolStripMenuItemCars.Visible = false;
-            toolStripMenuItemCustomers.Visible = false;
-            ToolStripMenuItemRentalCars.Visible = false;
-            
+            //rulesToolStripMenuItem.Visible = false;
+            //brokenCarsToolStripMenuItem.Visible = false;
+            //arabalarToolStripMenuItemCars.Visible = false;
+            //toolStripMenuItemCustomers.Visible = false;
+            //ToolStripMenuItemRentalCars.Visible = false;
+
 
 
             if (UserRole == RuleEnum.IT.ToString())
             {
-                rulesToolStripMenuItem.Visible = false;
+
             }
             else if (UserRole == RuleEnum.Developer.ToString())
             {
@@ -93,15 +87,14 @@ namespace RentACar.Desktop
             }
             else if (UserRole == RuleEnum.admin.ToString())
             {
-                rulesToolStripMenuItem.Visible = false;
+
             }
             else if (UserRole == RuleEnum.usertest.ToString())
             {
-                rulesToolStripMenuItem.Visible = false;
+
             }
             else if (UserRole == RuleEnum.Manager.ToString())
             {
-                rulesToolStripMenuItem.Visible = false;
             }
         }
     }

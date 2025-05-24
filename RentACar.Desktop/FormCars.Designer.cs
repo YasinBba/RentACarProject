@@ -45,6 +45,10 @@
             this.textBoxAciklama = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxPricePerDay = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxFuelAmount = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllCars)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -112,6 +116,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBoxFuelAmount);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBoxPricePerDay);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxAracMarka);
             this.groupBox1.Controls.Add(this.label4);
@@ -130,7 +138,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(230, 27);
+            this.label1.Location = new System.Drawing.Point(6, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
@@ -138,7 +146,7 @@
             // 
             // textBoxAracMarka
             // 
-            this.textBoxAracMarka.Location = new System.Drawing.Point(90, 60);
+            this.textBoxAracMarka.Location = new System.Drawing.Point(84, 44);
             this.textBoxAracMarka.Name = "textBoxAracMarka";
             this.textBoxAracMarka.Size = new System.Drawing.Size(121, 20);
             this.textBoxAracMarka.TabIndex = 9;
@@ -146,7 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 63);
+            this.label4.Location = new System.Drawing.Point(6, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 8;
@@ -154,14 +162,14 @@
             // 
             // textBoxAracModel
             // 
-            this.textBoxAracModel.Location = new System.Drawing.Point(304, 24);
+            this.textBoxAracModel.Location = new System.Drawing.Point(84, 70);
             this.textBoxAracModel.Name = "textBoxAracModel";
             this.textBoxAracModel.Size = new System.Drawing.Size(121, 20);
             this.textBoxAracModel.TabIndex = 7;
             // 
             // textBoxAracTanim
             // 
-            this.textBoxAracTanim.Location = new System.Drawing.Point(90, 24);
+            this.textBoxAracTanim.Location = new System.Drawing.Point(84, 21);
             this.textBoxAracTanim.Name = "textBoxAracTanim";
             this.textBoxAracTanim.Size = new System.Drawing.Size(121, 20);
             this.textBoxAracTanim.TabIndex = 6;
@@ -169,7 +177,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 27);
+            this.label3.Location = new System.Drawing.Point(6, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 5;
@@ -177,20 +185,20 @@
             // 
             // textBoxAciklama
             // 
-            this.textBoxAciklama.Location = new System.Drawing.Point(304, 57);
+            this.textBoxAciklama.Location = new System.Drawing.Point(293, 73);
             this.textBoxAciklama.Multiline = true;
             this.textBoxAciklama.Name = "textBoxAciklama";
-            this.textBoxAciklama.Size = new System.Drawing.Size(232, 51);
+            this.textBoxAciklama.Size = new System.Drawing.Size(121, 51);
             this.textBoxAciklama.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 60);
+            this.label2.Location = new System.Drawing.Point(213, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Açıklama";
+            this.label2.Text = "Açıklama:";
             // 
             // groupBox2
             // 
@@ -201,6 +209,38 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Araç Listesi";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(213, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Araç Ücreti:";
+            // 
+            // textBoxPricePerDay
+            // 
+            this.textBoxPricePerDay.Location = new System.Drawing.Point(293, 21);
+            this.textBoxPricePerDay.Name = "textBoxPricePerDay";
+            this.textBoxPricePerDay.Size = new System.Drawing.Size(121, 20);
+            this.textBoxPricePerDay.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(213, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Yakıt Yüzdesi:";
+            // 
+            // textBoxFuelAmount
+            // 
+            this.textBoxFuelAmount.Location = new System.Drawing.Point(293, 47);
+            this.textBoxFuelAmount.Name = "textBoxFuelAmount";
+            this.textBoxFuelAmount.Size = new System.Drawing.Size(121, 20);
+            this.textBoxFuelAmount.TabIndex = 13;
             // 
             // FormCars
             // 
@@ -242,5 +282,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUpdate;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.ToolStripButton toolStripButtonClean;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxFuelAmount;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxPricePerDay;
     }
 }

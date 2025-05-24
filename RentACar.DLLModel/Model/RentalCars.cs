@@ -20,13 +20,13 @@ namespace RentACar.DLLModel.Model
         public int UserId { get; set; }
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
-        public decimal PricePerDay { get; set; }
-        public decimal FuelAmount { get; set; }
+        public Nullable<decimal> PricePerDay { get; set; }
+        public Nullable<decimal> FuelAmount { get; set; }
         public string Description { get; set; }
         public System.DateTime CreateDate { get; set; }
         public int CreatorId { get; set; }
-        public System.DateTime UpdateDate { get; set; }
-        public int UpdatorId { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<int> UpdatorId { get; set; }
         public string IsActive { get; set; }
     
         public virtual Cars Cars { get; set; }
