@@ -238,7 +238,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(200, 106);
-            this.textBoxDescription.TabIndex = 8;
+            this.textBoxDescription.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -334,7 +334,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridViewRentalCarList);
             this.Name = "FormRentalCars";
-            this.Text = "FormRentalCars";
+            this.Text = "RentalCars";
             this.Load += new System.EventHandler(this.FormRentalCars_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRentalCarList)).EndInit();
             this.toolStrip1.ResumeLayout(false);

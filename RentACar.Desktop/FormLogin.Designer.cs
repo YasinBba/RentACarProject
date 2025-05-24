@@ -39,14 +39,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 153);
+            this.textBox1.Location = new System.Drawing.Point(176, 153);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(183, 196);
+            this.textBox2.Location = new System.Drawing.Point(176, 196);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(122, 156);
+            this.label1.Location = new System.Drawing.Point(112, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(124, 199);
+            this.label2.Location = new System.Drawing.Point(114, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(183, 242);
+            this.buttonLogin.Location = new System.Drawing.Point(176, 242);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(100, 50);
             this.buttonLogin.TabIndex = 4;
@@ -82,10 +82,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::RentACar.Desktop.Properties.Resources.login;
-            this.pictureBox1.Location = new System.Drawing.Point(104, 23);
+            this.pictureBox1.Image = global::RentACar.Desktop.Properties.Resources.free_user_login_icon_305_thumb;
+            this.pictureBox1.Location = new System.Drawing.Point(117, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 124);
+            this.pictureBox1.Size = new System.Drawing.Size(202, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -95,7 +95,7 @@
             this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 425);
+            this.ClientSize = new System.Drawing.Size(457, 427);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label2);

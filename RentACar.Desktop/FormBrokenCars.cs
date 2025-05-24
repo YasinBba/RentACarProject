@@ -34,22 +34,24 @@ namespace RentACar.Desktop
             comboBoxCarName.DisplayMember = "Name";
             comboBoxCarName.ValueMember = "Id";
             comboBoxCarName.DataSource = db.Cars.ToList();
-            
+            comboBoxCarName.DataSource = db.Cars
+            .Where(car => car.IsActive == true) 
+            .ToList();
 
 
 
-            comboBoxCustomerName.DisplayMember = "FirstName";//Customer tablosundaki hangi alanı göstereceğini belirtiyoruz. Kolo adı 1-1 eşleşmeli, tek karakter bile farklı olmamalı
-            comboBoxCustomerName.DisplayMember = "FullName";//Customer tablosundaki hangi alanı göstereceğini belirtiyoruz. Kolo adı 1-1 eşleşmeli, tek karakter bile farklı olmamalı
-                                                            //Value => DisplayMember = "FirstName" + " " + "LastName"; //Customer tablosundaki FirstName ve LastName alanlarını birleştirip göstereceğiz.
-            comboBoxCustomerName.ValueMember = "Id";//Key alanı, yani Customer tablosundaki Id alanını kullanıyoruz.
-                                                    //comboBoxCustomerName.DataSource = db.Customers.ToList();
-            comboBoxCustomerName.DataSource = db.Customers.
-                Select(y => new
+
+            comboBoxCustomerName.DisplayMember = "FirstName";
+            comboBoxCustomerName.DisplayMember = "FullName";
+            comboBoxCustomerName.ValueMember = "Id";
+            comboBoxCustomerName.DataSource = db.Customers
+                .Where(c => c.IsActive == true) 
+                .Select(c => new
                 {
-                    Id = y.Id,
-                    FullName = y.FirstName + " " + y.LastName //Customer tablosundaki FirstName ve LastName alanlarını birleştirip göstereceğiz.
-
-                }).ToList();
+                    Id = c.Id,
+                    FullName = c.FirstName + " " + c.LastName
+                })
+                .ToList();
 
 
 

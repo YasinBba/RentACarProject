@@ -114,14 +114,14 @@
             this.textBoxEmail.Location = new System.Drawing.Point(63, 97);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(121, 20);
-            this.textBoxEmail.TabIndex = 16;
+            this.textBoxEmail.TabIndex = 4;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(297, 48);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(200, 26);
-            this.textBoxAddress.TabIndex = 13;
+            this.textBoxAddress.TabIndex = 5;
             // 
             // label2
             // 
@@ -163,7 +163,7 @@
             this.textBoxLastName.Location = new System.Drawing.Point(63, 45);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxLastName.TabIndex = 9;
+            this.textBoxLastName.TabIndex = 2;
             // 
             // label6
             // 
@@ -179,14 +179,14 @@
             this.textBoxPhone.Location = new System.Drawing.Point(63, 71);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(121, 20);
-            this.textBoxPhone.TabIndex = 7;
+            this.textBoxPhone.TabIndex = 3;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(63, 19);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxName.TabIndex = 6;
+            this.textBoxName.TabIndex = 1;
             // 
             // label7
             // 
@@ -202,8 +202,8 @@
             this.textBoxDescription.Location = new System.Drawing.Point(297, 78);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(232, 51);
-            this.textBoxDescription.TabIndex = 3;
+            this.textBoxDescription.Size = new System.Drawing.Size(200, 51);
+            this.textBoxDescription.TabIndex = 7;
             // 
             // label8
             // 
@@ -272,7 +272,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormEmployees";
-            this.Text = "FormEmployees";
+            this.Text = "Employees";
             this.Load += new System.EventHandler(this.FormEmployees_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllEmployees)).EndInit();

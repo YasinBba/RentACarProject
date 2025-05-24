@@ -36,6 +36,10 @@
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClean = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxFuelAmount = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxPricePerDay = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxAracMarka = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,10 +49,6 @@
             this.textBoxAciklama = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxPricePerDay = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxFuelAmount = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllCars)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -135,6 +135,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Araç Bilgileri";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(213, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Yakıt Yüzdesi:";
+            // 
+            // textBoxFuelAmount
+            // 
+            this.textBoxFuelAmount.Location = new System.Drawing.Point(293, 47);
+            this.textBoxFuelAmount.Name = "textBoxFuelAmount";
+            this.textBoxFuelAmount.Size = new System.Drawing.Size(121, 20);
+            this.textBoxFuelAmount.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(213, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Araç Ücreti:";
+            // 
+            // textBoxPricePerDay
+            // 
+            this.textBoxPricePerDay.Location = new System.Drawing.Point(293, 21);
+            this.textBoxPricePerDay.Name = "textBoxPricePerDay";
+            this.textBoxPricePerDay.Size = new System.Drawing.Size(121, 20);
+            this.textBoxPricePerDay.TabIndex = 4;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -149,7 +181,7 @@
             this.textBoxAracMarka.Location = new System.Drawing.Point(84, 44);
             this.textBoxAracMarka.Name = "textBoxAracMarka";
             this.textBoxAracMarka.Size = new System.Drawing.Size(121, 20);
-            this.textBoxAracMarka.TabIndex = 9;
+            this.textBoxAracMarka.TabIndex = 2;
             // 
             // label4
             // 
@@ -165,14 +197,14 @@
             this.textBoxAracModel.Location = new System.Drawing.Point(84, 70);
             this.textBoxAracModel.Name = "textBoxAracModel";
             this.textBoxAracModel.Size = new System.Drawing.Size(121, 20);
-            this.textBoxAracModel.TabIndex = 7;
+            this.textBoxAracModel.TabIndex = 3;
             // 
             // textBoxAracTanim
             // 
             this.textBoxAracTanim.Location = new System.Drawing.Point(84, 21);
             this.textBoxAracTanim.Name = "textBoxAracTanim";
             this.textBoxAracTanim.Size = new System.Drawing.Size(121, 20);
-            this.textBoxAracTanim.TabIndex = 6;
+            this.textBoxAracTanim.TabIndex = 1;
             // 
             // label3
             // 
@@ -189,7 +221,7 @@
             this.textBoxAciklama.Multiline = true;
             this.textBoxAciklama.Name = "textBoxAciklama";
             this.textBoxAciklama.Size = new System.Drawing.Size(121, 51);
-            this.textBoxAciklama.TabIndex = 3;
+            this.textBoxAciklama.TabIndex = 6;
             // 
             // label2
             // 
@@ -210,38 +242,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Araç Listesi";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(213, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Araç Ücreti:";
-            // 
-            // textBoxPricePerDay
-            // 
-            this.textBoxPricePerDay.Location = new System.Drawing.Point(293, 21);
-            this.textBoxPricePerDay.Name = "textBoxPricePerDay";
-            this.textBoxPricePerDay.Size = new System.Drawing.Size(121, 20);
-            this.textBoxPricePerDay.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(213, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Yakıt Yüzdesi:";
-            // 
-            // textBoxFuelAmount
-            // 
-            this.textBoxFuelAmount.Location = new System.Drawing.Point(293, 47);
-            this.textBoxFuelAmount.Name = "textBoxFuelAmount";
-            this.textBoxFuelAmount.Size = new System.Drawing.Size(121, 20);
-            this.textBoxFuelAmount.TabIndex = 13;
-            // 
             // FormCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,7 +251,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormCars";
-            this.Text = "FormCars";
+            this.Text = "Cars";
             this.Load += new System.EventHandler(this.FormCars_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllCars)).EndInit();
             this.toolStrip1.ResumeLayout(false);

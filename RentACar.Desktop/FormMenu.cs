@@ -69,33 +69,34 @@ namespace RentACar.Desktop
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            //rulesToolStripMenuItem.Visible = false;
-            //brokenCarsToolStripMenuItem.Visible = false;
-            //arabalarToolStripMenuItemCars.Visible = false;
-            //toolStripMenuItemCustomers.Visible = false;
-            //ToolStripMenuItemRentalCars.Visible = false;
+            
+            
 
 
 
-            if (UserRole == RuleEnum.IT.ToString())
+            if (UserRole == RuleEnum.admin.ToString())
             {
 
             }
-            else if (UserRole == RuleEnum.Developer.ToString())
+            else if (UserRole == RuleEnum.IK.ToString())
             {
+                usersToolStripMenuItem.Visible = false;
 
             }
-            else if (UserRole == RuleEnum.admin.ToString())
+            else if (UserRole == RuleEnum.  IT.ToString())
             {
+                usersToolStripMenuItem.Visible = false;
 
             }
-            else if (UserRole == RuleEnum.usertest.ToString())
+            else if (UserRole == RuleEnum.  personel.ToString())
             {
+                usersToolStripMenuItem.Visible = false;
+                employeesToolStripMenuItem.Visible = false;
+                arabalarToolStripMenuItemCars.Visible = false;
+
 
             }
-            else if (UserRole == RuleEnum.Manager.ToString())
-            {
-            }
+            
         }
     }
 }

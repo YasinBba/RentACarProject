@@ -23,13 +23,13 @@ namespace RentACar.Desktop
             users.Description = textBoxDescription.Text;
             users.IsActive = true;
             users.Id = 0;
-            users.UserRole = "User"; // TODO: Set the actual user role based on your application logic
-            users.UserId = 0; // TODO: Set the actual user ID based on your application logic
+            users.UserRole = textBoxRole.Text; 
+            users.UserId = 0; 
             users.UpdateDate = DateTime.Now;
-            users.UpdatorId = 1; // TODO: Get the actual updator ID from the logged-in user
+            users.UpdatorId = 1; 
 
             users.CreateDate = DateTime.Now;
-            users.CreatorId = 1; // TODO: Get the actual creator ID from the logged-in user
+            users.CreatorId = 1; 
             var result = usersManagment.AddUser(users);
             dataGridViewAllUsers.DataSource = usersManagment.GetAllUsers();
             MessageBox.Show(result);

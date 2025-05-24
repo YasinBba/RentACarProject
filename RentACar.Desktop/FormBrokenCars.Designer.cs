@@ -113,7 +113,7 @@
             this.comboBoxCarName.Location = new System.Drawing.Point(106, 36);
             this.comboBoxCarName.Name = "comboBoxCarName";
             this.comboBoxCarName.Size = new System.Drawing.Size(203, 21);
-            this.comboBoxCarName.TabIndex = 3;
+            this.comboBoxCarName.TabIndex = 1;
             // 
             // label1
             // 
@@ -139,7 +139,7 @@
             this.comboBoxCustomerName.Location = new System.Drawing.Point(106, 80);
             this.comboBoxCustomerName.Name = "comboBoxCustomerName";
             this.comboBoxCustomerName.Size = new System.Drawing.Size(203, 21);
-            this.comboBoxCustomerName.TabIndex = 6;
+            this.comboBoxCustomerName.TabIndex = 2;
             // 
             // textBoxDescription
             // 
@@ -147,7 +147,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(203, 100);
-            this.textBoxDescription.TabIndex = 7;
+            this.textBoxDescription.TabIndex = 4;
             // 
             // label3
             // 
@@ -189,7 +189,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(106, 116);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(203, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // FormBrokenCars
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridViewBrokenCarList);
             this.Name = "FormBrokenCars";
-            this.Text = "FormBrokenCars";
+            this.Text = "BrokenCars";
             this.Load += new System.EventHandler(this.FormBrokenCars_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBrokenCarList)).EndInit();
             this.toolStrip1.ResumeLayout(false);

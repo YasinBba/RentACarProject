@@ -173,6 +173,12 @@
   <ItemGroup>
     <None Include="Resources\rentacarmenu.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-user-login-icon-305-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdobeStock_86477498.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

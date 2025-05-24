@@ -250,7 +250,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "FormUsers";
-            this.Text = "FormUsers";
+            this.Text = "Users";
             this.Load += new System.EventHandler(this.FormUsers_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

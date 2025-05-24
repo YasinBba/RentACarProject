@@ -75,7 +75,9 @@ namespace RentACar.BLL
 
         public List<BrokenCars> GetAllBrokenCars()
         {
-            return db.BrokenCars.ToList();
+            return db.BrokenCars
+            .Where(b => b.IsActive == "True") // veya c.IsActive == "True" eğer string ise
+            .ToList();
 
         }
 
